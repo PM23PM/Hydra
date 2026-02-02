@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunità - Hydra</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="C:/Users/Patrizio Jr/Desktop/foto/hydra.jfif" alt="Logo Hydra"></a> 
+        </div>
+        <nav>
+            <div class="menu-toggle">&#9776;</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="giochi.html">Giochi</a></li>
+                <li><a href="comunita.html">Comunità</a></li>
+                <li><a href="supporto.html">Supporto</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="parallax">
+        <div class="overlay"></div>
+        <div class="content">
+            <h2>La nostra Comunità</h2>
+            <p>Unisciti a milioni di giocatori e partecipa a eventi, tornei e discussioni esclusive.</p>
+        </div>
+    </section>
+
+    <footer>
+        <a href="#" class="cta-button">Esplora il nostro mondo</a>
+        <div class="footer-content">
+            <p>&copy; 2025 Hydra. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

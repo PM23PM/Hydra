@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Giochi - Hydra</title>
+</head>
+<body>
+    <h1>Giochi</h1>
+    <p>Scopri i nostri giochi più innovativi e divertenti.</p>
+    <a href="index.html">Torna alla Home</a>
+</body>
+</html>
