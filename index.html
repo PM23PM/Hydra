@@ -80,7 +80,7 @@
         }
 
         /* Sezione senza divisione tra Home e Giochi */
-      .section {
+     .section {
     position: relative;
     background-color: rgba(0, 0, 0, 0.7);
     min-height: 100vh;
@@ -88,22 +88,24 @@
     justify-content: center;
     align-items: flex-start;
     text-align: center;
-
-    padding-top: 180px; /* +20px rispetto a prima, separa dal header */
-    padding-bottom: 60px;
+    
+    padding-top: 160px;   /* spazio tra header e blocco */
+    padding-bottom: 40px; /* ridotto per diminuire altezza di 0,5cm */
 }
 
 
 
-        .section-content {
+
+       .section-content {
     z-index: 1;
     color: #fff;
-    max-width: 700px;   /* blocco più stretto */
-    padding: 35px;      /* ridotto da 40px a 35px per circa 0,5 cm */
+    max-width: 1000px;  /* larghezza originale ripristinata */
+    padding: 55px 60px; /* verticale leggermente ridotto: 55px invece di 60px */
     background: rgba(0, 0, 0, 0.9);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
 }
+
 
 
         .section-title {
@@ -323,5 +325,6 @@
 </html><!--       [*  *]         
                    ( -o 
                     miglioralo
+
 
 
