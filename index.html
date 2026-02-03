@@ -85,32 +85,32 @@
         }
 
         /* Sezione senza divisione tra Home e Giochi */
-        .section {
+       .section {
     position: relative;
     background-color: rgba(0, 0, 0, 0.7);
     min-height: 100vh;
+
     display: flex;
     justify-content: center;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start; /* 🔥 NON center */
 
-    padding-top: 160px; /* margine dalla barra nera */
+    padding-top: 160px; /* spazio dalla barra */
+    text-align: center;
 }
 
 
-        .section-content {
+        ..section-content {
     z-index: 1;
     color: #fff;
 
-    max-width: 800px; /* blocco più stretto */
-    padding: 40px;    /* meno spazio interno */
+    max-width: 800px;
+    padding: 40px;
 
     background: rgba(0, 0, 0, 0.9);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
-
-    margin-top: 40px; /* distacco extra dalla barra */
 }
+
 
 
         .section-title {
