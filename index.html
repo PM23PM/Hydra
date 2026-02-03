@@ -80,16 +80,19 @@
     }
 
     /* ------------------ STILE COMUNE PER TUTTE LE SEZIONI ------------------ */
-    .section {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        padding-top: 200px; /* distanza dall'header */
-        padding-bottom: 40px;
-    }
+   /* Sfondo nero esterno uguale alla Community per tutte le sezioni */
+.section {
+    background-color: rgba(0,0,0,0.7); /* sfondo nero semi-trasparente */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 200px; /* distanza dall'header */
+    padding-bottom: 40px;
+}
 
-    .section .section-content {
-    background-color: rgba(0,0,0,0.9); /* blocco interno con padding e ombra */
+/* Mantieni il blocco interno con padding e ombra */
+.section .section-content {
+    background-color: rgba(0,0,0,0.9); /* blocco interno */
     padding: 60px;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
@@ -97,6 +100,7 @@
     width: 90%;
     margin: 0 auto;
 }
+
 
 
     .section-title, .section-title-center {
@@ -253,4 +257,5 @@
 
 </body>
 </html>
+
 
