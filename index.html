@@ -1,314 +1,254 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hydra - Il futuro del gaming</title>
-    <style>
-        /* Reset di base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hydra - Il futuro del gaming</title>
+<style>
+    /* Reset base */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            color: #f1f1f1;
-            background-image: url('https://i.imgur.com/NdfNIiy.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        color: #f1f1f1;
+        background-image: url('https://i.imgur.com/NdfNIiy.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
 
-        /* Header e barra di navigazione */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 30px;
-            background-color: #000;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
+    /* Header */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 30px;
+        background-color: #000;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
 
-        /* Linea bianca sotto l'header */
-        header::after {
-            content: "";
-            display: block;
-            width: 100%;
-            height: 2px;
-            background-color: #fff;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-        }
+    /* Linea bianca sotto header */
+    header::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
 
-        .logo img {
-            width: 120px;
-        }
+    .logo img { width: 120px; }
+    .header-content { display: flex; align-items: center; }
+    .company-name {
+        font-size: 48px;
+        font-weight: bold;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        margin-left: 20px;
+    }
 
-        .header-content {
-            display: flex;
-            align-items: center;
-        }
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+    }
 
-        .company-name {
-            font-size: 48px;
-            font-weight: bold;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            margin-left: 20px;
-        }
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: color 0.3s, transform 0.2s;
+        cursor: pointer;
+    }
 
-        nav ul {
-            display: flex;
-            list-style-type: none;
-            gap: 30px;
-        }
+    nav ul li a:hover {
+        color: #ff6f61;
+        transform: scale(1.1);
+    }
 
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: color 0.3s ease-in-out, transform 0.2s;
-            cursor: pointer;
-        }
+    /* ------------------ STILE COMUNE PER TUTTE LE SEZIONI ------------------ */
+    .section {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 200px; /* distanza dall'header */
+        padding-bottom: 40px;
+    }
 
-        nav ul li a:hover {
-            color: #ff6f61;
-            transform: scale(1.1);
-        }
+    .section .section-content {
+        background-color: rgba(0,0,0,0.9); /* sfondo nero come Community */
+        padding: 60px;                       /* padding interno */
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        max-width: 1000px;
+        width: 90%;
+        margin: 0 auto;
+    }
 
-        /* ---------------- Stile comune per tutte le sezioni ---------------- */
-        .section .section-content {
-            background-color: rgba(0, 0, 0, 0.9); /* sfondo nero semi-trasparente */
-            padding: 60px;                       /* spazio interno */
-            border-radius: 15px;                 /* angoli arrotondati */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* ombra */
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+    .section-title, .section-title-center {
+        font-size: 50px;
+        font-weight: bold;
+        margin-bottom: 40px;
+        text-align: center;
+    }
 
-        /* ---------------- Sezione Chi Siamo ---------------- */
-        #home.section {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            text-align: center;
-            padding-top: 220px;  /* distanza dall'header */
-            padding-bottom: 40px;
-        }
+    .section-text {
+        font-size: 26px;
+        line-height: 1.6;
+    }
 
-        #home .section-title {
-            font-size: 50px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
+    /* ---------------- Sezione Giochi ---------------- */
+    .game-catalog {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+    }
 
-        #home .section-text {
-            font-size: 26px;
-            line-height: 1.6;
-        }
+    .game-catalog img {
+        width: 40%;
+        height: auto;
+        border-radius: 10px;
+    }
 
-        /* ---------------- Sezione Giochi ---------------- */
-        #giochi.section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 50px 0;
-        }
+    .game-description {
+        width: 55%;
+        color: #fff;
+        padding-left: 20px;
+    }
 
-        .game-catalog {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            max-width: 1200px;
-        }
+    .game-catalog h3 { font-size: 26px; margin-bottom: 15px; }
+    .game-catalog p { font-size: 22px; }
 
-        .game-catalog img {
-            width: 40%;
-            height: auto;
-            border-radius: 10px;
-        }
+    /* ---------------- Community ---------------- */
+    .community-icons img {
+        width: 80px;
+        height: 80px;
+        margin: 20px;
+        transition: transform 0.3s;
+    }
 
-        .game-description {
-            width: 55%;
-            color: #fff;
-            padding-left: 20px;
-        }
+    .community-icons img:hover { transform: scale(1.2); }
 
-        .game-catalog h3 {
-            font-size: 26px;
-            margin-bottom: 15px;
-        }
+    /* ---------------- Supporto ---------------- */
+    .support-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        font-size: 22px;
+        text-align: center;
+    }
 
-        .game-catalog p {
-            font-size: 22px;
-        }
+    .support-info p { font-size: 26px; }
 
-        /* ---------------- Sezione Community ---------------- */
-        #community {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 60px 0;
-            text-align: center;
-        }
+    .support-info .support-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: rgba(0,0,0,0.9);
+        border-radius: 15px;
+        width: 80%;
+        max-width: 600px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
 
-        .section-title-center {
-            font-size: 50px;
-            font-weight: bold;
-            margin-bottom: 40px;
-        }
+    /* Footer */
+    footer {
+        background-color: #111;
+        padding: 30px;
+        text-align: center;
+        color: #fff;
+    }
 
-        .community-icons img {
-            width: 80px;
-            height: 80px;
-            margin: 20px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .community-icons img:hover {
-            transform: scale(1.2);
-        }
-
-        /* ---------------- Sezione Supporto ---------------- */
-        #supporto.section {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .support-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            font-size: 22px;
-            text-align: center;
-        }
-
-        .support-info p {
-            font-size: 26px;
-        }
-
-        .support-info .support-item {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            background: rgba(0,0,0,0.9);
-            border-radius: 15px;
-            width: 80%;
-            max-width: 600px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-
-        /* ---------------- Footer ---------------- */
-        footer {
-            background-color: #111;
-            padding: 30px;
-            text-align: center;
-            color: #fff;
-        }
-
-        .footer-content {
-            font-size: 18px;
-        }
-
-    </style>
+    .footer-content { font-size: 18px; }
+</style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <a href="#"><img src="https://i.imgur.com/8SUgbwa.png" alt="Logo Hydra"></a>
-            </div>
-            <div class="company-name">HYDRA</div>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#giochi">Giochi</a></li>
-                <li><a href="#community">Community</a></li>
-                <li><a href="#supporto">Supporto</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <div class="header-content">
+        <div class="logo"><a href="#"><img src="https://i.imgur.com/8SUgbwa.png" alt="Logo Hydra"></a></div>
+        <div class="company-name">HYDRA</div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#giochi">Giochi</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a href="#supporto">Supporto</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <!-- Chi Siamo -->
-    <section id="home" class="section">
-        <div class="section-content">
-            <h2 class="section-title">Chi Siamo</h2>
-            <p class="section-text">
-                Hydra è un'azienda videoludica con l'intento di imporsi nel mercato videoludico italiano, offrendo esperienze che stimolano la riflessione e l'apprendimento. Siamo appassionati nel realizzare giochi coinvolgenti, innovativi e accessibili, in grado di affascinare i giocatori di tutte le età. Ci impegniamo a minimizzare il nostro impatto sull'ambiente, adottando tecniche di produzione sostenibili, perché crediamo che anche l'industria del gaming debba contribuire a un futuro più verde e responsabile. Ogni progetto che realizziamo è pensato per offrire un'esperienza unica, che unisce intrattenimento e crescita.
-            </p>
-        </div>
-    </section>
+<!-- Chi Siamo -->
+<section id="home" class="section">
+    <div class="section-content">
+        <h2 class="section-title">Chi Siamo</h2>
+        <p class="section-text">
+            Hydra è un'azienda videoludica con l'intento di imporsi nel mercato videoludico italiano, offrendo esperienze che stimolano la riflessione e l'apprendimento. Siamo appassionati nel realizzare giochi coinvolgenti, innovativi e accessibili, in grado di affascinare i giocatori di tutte le età. Ci impegniamo a minimizzare il nostro impatto sull'ambiente, adottando tecniche di produzione sostenibili, perché crediamo che anche l'industria del gaming debba contribuire a un futuro più verde e responsabile. Ogni progetto che realizziamo è pensato per offrire un'esperienza unica, che unisce intrattenimento e crescita.
+        </p>
+    </div>
+</section>
 
-    <!-- Giochi -->
-    <section id="giochi" class="section">
-        <div class="section-content">
-            <div class="game-catalog">
-                <img src="https://i.imgur.com/SsF3h7C.jpeg" alt="Decode Game">
-                <div class="game-description">
-                    <h3>Decode</h3>
-                    <p>
-                        Decode è un FPS rompicapo ambientato in eventi storici che hanno segnato il corso della storia. Dovrai decifrare vari cifrari, come "binario" e "cifrario cesare", con l'obiettivo di sabotare il nemico.
-                    </p>
-                </div>
+<!-- Giochi -->
+<section id="giochi" class="section">
+    <div class="section-content">
+        <div class="game-catalog">
+            <img src="https://i.imgur.com/SsF3h7C.jpeg" alt="Decode Game">
+            <div class="game-description">
+                <h3>Decode</h3>
+                <p>Decode è un FPS rompicapo ambientato in eventi storici che hanno segnato il corso della storia. Dovrai decifrare vari cifrari, come "binario" e "cifrario cesare", con l'obiettivo di sabotare il nemico.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Community -->
-    <section id="community">
-        <div class="section-content community-content">
-            <h2 class="section-title-center">Unisciti alla nostra community!</h2>
-            <p class="section-text">
-                Seguici sui nostri canali social per rimanere aggiornato su tutte le novità, eventi e giochi.
-            </p>
-            <div class="community-icons">
-                <a href="https://www.instagram.com" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png" alt="Instagram">
-                </a>
-            </div>
+<!-- Community -->
+<section id="community" class="section">
+    <div class="section-content">
+        <h2 class="section-title-center">Unisciti alla nostra community!</h2>
+        <p class="section-text">Seguici sui nostri canali social per rimanere aggiornato su tutte le novità, eventi e giochi.</p>
+        <div class="community-icons">
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png" alt="Instagram">
+            </a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Supporto -->
-    <section id="supporto" class="section">
-        <div class="section-content">
-            <h2 class="section-title">Supporto</h2>
-            <div class="support-info">
-                <p>Per qualsiasi dubbio, problema o richiesta, non esitare a contattarci:</p>
-                <div class="support-item">
-                    <p>Email: supporto@hydra.com</p>
-                </div>
-                <div class="support-item">
-                    <p>Telefono: +39 123 456 789</p>
-                </div>
-            </div>
+<!-- Supporto -->
+<section id="supporto" class="section">
+    <div class="section-content">
+        <h2 class="section-title">Supporto</h2>
+        <div class="support-info">
+            <p>Per qualsiasi dubbio, problema o richiesta, non esitare a contattarci:</p>
+            <div class="support-item"><p>Email: supporto@hydra.com</p></div>
+            <div class="support-item"><p>Telefono: +39 123 456 789</p></div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Hydra. Tutti i diritti riservati.</p>
-        </div>
-    </footer>
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2025 Hydra. Tutti i diritti riservati.</p>
+    </div>
+</footer>
 
 </body>
 </html>
