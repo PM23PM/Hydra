@@ -86,25 +86,32 @@
 
         /* Sezione senza divisione tra Home e Giochi */
         .section {
-            position: relative;
-            background-color: rgba(0, 0, 0, 0.7);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding-top: 100px; /* Spazio per la barra di navigazione */
-        }
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.7);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    padding-top: 160px; /* margine dalla barra nera */
+}
+
 
         .section-content {
-            z-index: 1;
-            color: #fff;
-            max-width: 1000px; /* Aumentata la larghezza */
-            padding: 60px; /* Aumentato il padding */
-            background: rgba(0, 0, 0, 0.9);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            border-radius: 15px;
-        }
+    z-index: 1;
+    color: #fff;
+
+    max-width: 800px; /* blocco più stretto */
+    padding: 40px;    /* meno spazio interno */
+
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+
+    margin-top: 40px; /* distacco extra dalla barra */
+}
+
 
         .section-title {
             font-size: 50px; /* Aumento della dimensione del titolo */
@@ -326,6 +333,7 @@
                     
 </body>
 </html>
+
 
 
 
