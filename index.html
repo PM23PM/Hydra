@@ -114,17 +114,19 @@
             padding: 50px 0;
         }
 
+        #giochi .section-content {
+            background-color: rgba(0,0,0,0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
         .game-catalog {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 80%;
+            width: 100%;
             max-width: 1200px;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            margin-bottom: 20px;
         }
 
         .game-catalog img {
@@ -183,19 +185,20 @@
 
         /* ---------------- Sezione Supporto ---------------- */
         #supporto.section {
-            background-color: rgba(0, 0, 0, 0.9);  /* sfondo nero completo */
             display: flex;
             justify-content: center;
             align-items: flex-start;
             text-align: center;
-            padding: 60px 20px;  /* padding adeguato */
+            padding: 60px 20px;
         }
 
         #supporto .section-content {
             max-width: 800px;
             width: 100%;
-            padding: 30px;
+            padding: 40px;
+            background-color: rgba(0,0,0,0.9);
             border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
         .support-info {
@@ -217,11 +220,11 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0,0,0,0.9);
             border-radius: 15px;
             width: 80%;
             max-width: 600px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
         /* ---------------- Footer ---------------- */
@@ -270,13 +273,15 @@
 
     <!-- Sezione Giochi -->
     <section id="giochi" class="section">
-        <div class="game-catalog">
-            <img src="https://i.imgur.com/SsF3h7C.jpeg" alt="Decode Game">
-            <div class="game-description">
-                <h3>Decode</h3>
-                <p>
-                    Decode è un FPS rompicapo ambientato in eventi storici che hanno segnato il corso della storia. Dovrai decifrare vari cifrari, come "binario" e "cifrario cesare", con l'obiettivo di sabotare il nemico.
-                </p>
+        <div class="section-content">
+            <div class="game-catalog">
+                <img src="https://i.imgur.com/SsF3h7C.jpeg" alt="Decode Game">
+                <div class="game-description">
+                    <h3>Decode</h3>
+                    <p>
+                        Decode è un FPS rompicapo ambientato in eventi storici che hanno segnato il corso della storia. Dovrai decifrare vari cifrari, come "binario" e "cifrario cesare", con l'obiettivo di sabotare il nemico.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
