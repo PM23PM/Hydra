@@ -86,6 +86,16 @@
             transform: scale(1.1);
         }
 
+        /* Rettangolo nero semi-trasparente con ombra per tutte le sezioni */
+        .section .section-content {
+            background-color: rgba(0,0,0,0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
         /* ---------------- Sezione Chi Siamo ---------------- */
         #home.section {
             display: flex;
@@ -94,16 +104,6 @@
             text-align: center;
             padding-top: 220px;  /* distanza dall'header */
             padding-bottom: 40px;
-        }
-
-        #home .section-content {
-            z-index: 1;
-            color: #fff;
-            max-width: 1000px;
-            padding: 30px 60px;
-            background: rgba(0,0,0,0.9);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            border-radius: 15px;
         }
 
         #home .section-title {
@@ -123,13 +123,6 @@
             justify-content: center;
             align-items: center;
             padding: 50px 0;
-        }
-
-        #giochi .section-content {
-            background-color: rgba(0,0,0,0.9);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
         .game-catalog {
@@ -168,15 +161,6 @@
             text-align: center;
         }
 
-        .community-content {
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 60px;
-            max-width: 1000px;
-            margin: 0 auto;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        }
-
         .section-title-center {
             font-size: 50px;
             font-weight: bold;
@@ -201,15 +185,6 @@
             align-items: flex-start;
             text-align: center;
             padding: 60px 20px;
-        }
-
-        #supporto .section-content {
-            max-width: 800px;
-            width: 100%;
-            padding: 40px;
-            background-color: rgba(0,0,0,0.9);
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
         .support-info {
@@ -249,6 +224,7 @@
         .footer-content {
             font-size: 18px;
         }
+
     </style>
 </head>
 <body>
@@ -298,7 +274,7 @@
 
     <!-- Community -->
     <section id="community">
-        <div class="community-content">
+        <div class="section-content community-content">
             <h2 class="section-title-center">Unisciti alla nostra community!</h2>
             <p class="section-text">
                 Seguici sui nostri canali social per rimanere aggiornato su tutte le novità, eventi e giochi.
