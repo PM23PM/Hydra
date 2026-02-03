@@ -13,7 +13,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Corpo della pagina con sfondo */
         body {
             font-family: Arial, sans-serif;
             color: #f1f1f1;
@@ -23,7 +22,7 @@
             background-attachment: fixed;
         }
 
-        /* Barra di navigazione nera */
+        /* Barra di navigazione */
         header {
             display: flex;
             justify-content: space-between;
@@ -75,24 +74,22 @@
             transform: scale(1.1);
         }
 
-        /* Sezione Chi Siamo */
+        /* ---------------- Sezione Chi Siamo ---------------- */
         #home.section {
-            position: relative;
             background-color: rgba(0, 0, 0, 0.7);
-            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: flex-start;
             text-align: center;
-            padding-top: 220px;  /* spazio di 2-3 cm dall'header */
+            padding-top: 220px;  /* spazio dal header */
             padding-bottom: 40px;
         }
 
         #home .section-content {
             z-index: 1;
             color: #fff;
-            max-width: 1000px; 
-            padding: 30px 60px;  /* altezza compatta */
+            max-width: 1000px;
+            padding: 30px 60px;
             background: rgba(0, 0, 0, 0.9);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             border-radius: 15px;
@@ -109,12 +106,11 @@
             line-height: 1.6;
         }
 
-        /* Catalogo Giochi */
-        #giochi {
+        /* ---------------- Sezione Giochi ---------------- */
+        #giochi.section {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             padding: 50px 0;
         }
 
@@ -152,7 +148,7 @@
             font-size: 22px;
         }
 
-        /* Sezione Community */
+        /* ---------------- Sezione Community ---------------- */
         #community {
             background-color: rgba(0, 0, 0, 0.7);
             padding: 60px 0;
@@ -172,7 +168,6 @@
             font-size: 50px;
             font-weight: bold;
             margin-bottom: 40px;
-            text-align: center;
         }
 
         .community-icons img {
@@ -186,17 +181,21 @@
             transform: scale(1.2);
         }
 
-        /* Sezione Supporto */
+        /* ---------------- Sezione Supporto ---------------- */
         #supporto.section {
-            position: relative;
-            background-color: rgba(0, 0, 0, 0.7);
-            min-height: 100vh;
+            background-color: rgba(0, 0, 0, 0.9);  /* sfondo nero completo */
             display: flex;
             justify-content: center;
             align-items: flex-start;
             text-align: center;
-            padding-top: 100px;
-            padding-bottom: 40px;
+            padding: 60px 20px;  /* padding adeguato */
+        }
+
+        #supporto .section-content {
+            max-width: 800px;
+            width: 100%;
+            padding: 30px;
+            border-radius: 15px;
         }
 
         .support-info {
@@ -204,7 +203,6 @@
             flex-direction: column;
             align-items: center;
             gap: 15px;
-            margin-top: 20px;
             font-size: 22px;
             text-align: center;
         }
@@ -226,7 +224,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
 
-        /* Footer */
+        /* ---------------- Footer ---------------- */
         footer {
             background-color: #111;
             padding: 30px;
@@ -237,6 +235,7 @@
         .footer-content {
             font-size: 18px;
         }
+
     </style>
 </head>
 <body>
@@ -259,7 +258,7 @@
         </nav>
     </header>
 
-    <!-- Sezione Home / Chi Siamo -->
+    <!-- Sezione Chi Siamo -->
     <section id="home" class="section">
         <div class="section-content">
             <h2 class="section-title">Chi Siamo</h2>
