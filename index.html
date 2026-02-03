@@ -22,7 +22,7 @@
             background-attachment: fixed;
         }
 
-        /* Barra di navigazione */
+        /* Header e barra di navigazione */
         header {
             display: flex;
             justify-content: space-between;
@@ -33,6 +33,18 @@
             top: 0;
             width: 100%;
             z-index: 1000;
+        }
+
+        /* Linea bianca sotto l'header */
+        header::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
+            position: absolute;
+            bottom: 0;
+            left: 0;
         }
 
         .logo img {
@@ -76,12 +88,11 @@
 
         /* ---------------- Sezione Chi Siamo ---------------- */
         #home.section {
-            background-color: rgba(0, 0, 0, 0.7);
             display: flex;
             justify-content: center;
             align-items: flex-start;
             text-align: center;
-            padding-top: 220px;  /* spazio dal header */
+            padding-top: 220px;  /* distanza dall'header */
             padding-bottom: 40px;
         }
 
@@ -90,8 +101,8 @@
             color: #fff;
             max-width: 1000px;
             padding: 30px 60px;
-            background: rgba(0, 0, 0, 0.9);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            background: rgba(0,0,0,0.9);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             border-radius: 15px;
         }
 
@@ -238,12 +249,11 @@
         .footer-content {
             font-size: 18px;
         }
-
     </style>
 </head>
 <body>
 
-    <!-- Barra di navigazione -->
+    <!-- Header -->
     <header>
         <div class="header-content">
             <div class="logo">
@@ -261,7 +271,7 @@
         </nav>
     </header>
 
-    <!-- Sezione Chi Siamo -->
+    <!-- Chi Siamo -->
     <section id="home" class="section">
         <div class="section-content">
             <h2 class="section-title">Chi Siamo</h2>
@@ -271,7 +281,7 @@
         </div>
     </section>
 
-    <!-- Sezione Giochi -->
+    <!-- Giochi -->
     <section id="giochi" class="section">
         <div class="section-content">
             <div class="game-catalog">
@@ -286,7 +296,7 @@
         </div>
     </section>
 
-    <!-- Sezione Community -->
+    <!-- Community -->
     <section id="community">
         <div class="community-content">
             <h2 class="section-title-center">Unisciti alla nostra community!</h2>
@@ -301,7 +311,7 @@
         </div>
     </section>
 
-    <!-- Sezione Supporto -->
+    <!-- Supporto -->
     <section id="supporto" class="section">
         <div class="section-content">
             <h2 class="section-title">Supporto</h2>
