@@ -25,20 +25,15 @@
 
         /* Barra di navigazione nera */
         header {
-           
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 30px;
-    background-color: #000;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-
-    border-bottom: 2px solid white; /* ← LINEA BIANCA */
-}
-
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background-color: #000; /* Sfondo nero */
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
 
         /* Logo (larghezza aumentata) */
@@ -85,33 +80,26 @@
         }
 
         /* Sezione senza divisione tra Home e Giochi */
-       .section {
-    position: relative;
-    background-color: rgba(0, 0, 0, 0.7);
-    min-height: 100vh;
+        .section {
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.7);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 100px; /* Spazio per la barra di navigazione */
+        }
 
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* 🔥 NON center */
-
-    padding-top: 160px; /* spazio dalla barra */
-    text-align: center;
-}
-
-
-        ..section-content {
-    z-index: 1;
-    color: #fff;
-
-    max-width: 800px;
-    padding: 40px;
-
-    background: rgba(0, 0, 0, 0.9);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
-}
-
-
+        .section-content {
+            z-index: 1;
+            color: #fff;
+            max-width: 1000px; /* Aumentata la larghezza */
+            padding: 60px; /* Aumentato il padding */
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+        }
 
         .section-title {
             font-size: 50px; /* Aumento della dimensione del titolo */
@@ -285,7 +273,6 @@
     <section id="giochi" class="section">
         <div class="game-catalog">
             <img src="https://i.imgur.com/SsF3h7C.jpeg" alt="Decode Game">
-
             <div class="game-description">
                 <h3>Decode</h3>
                 <p>Decode è un FPS rompicapo ambientato in eventi storici che hanno segnato il corso della storia. Dovrai decifrare vari cifrari, come "binario" e " cifrario cesare", con l'obiettivo di sabotare il nemico.</p>
@@ -328,13 +315,6 @@
     </footer>
 
 </body>             
-</html><!--       [* Anguilla Artica *]         
+</html><!--       [*  *]         
                    ( -o 
-                    
-</body>
-</html>
-
-
-
-
-
+                    miglioralo
