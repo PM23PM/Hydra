@@ -20,19 +20,20 @@
         background-position: center;
         background-attachment: fixed;
     }
+
     /* Header */
     header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 20px 30px;
+        padding: 20px 40px;
         background-color: #000;
         position: fixed;
         top: 0;
         width: 100%;
         z-index: 1000;
     }
-    /* Linea bianca sotto header */
+
     header::after {
         content: "";
         display: block;
@@ -43,8 +44,16 @@
         bottom: 0;
         left: 0;
     }
-    .logo img { width: 120px; }
-    .header-content { display: flex; align-items: center; }
+
+    .logo img {
+        width: 120px;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+    }
+
     .company-name {
         font-size: 48px;
         font-weight: bold;
@@ -53,17 +62,21 @@
         letter-spacing: 5px;
         margin-left: 20px;
     }
-    nav {
+
+    /* Nav principale al centro */
+    .main-nav {
+        flex: 1;
         display: flex;
-        align-items: center;
-        gap: 40px; /* spazio tra menu e bottoni */
+        justify-content: center;
     }
+
     nav ul {
         display: flex;
         list-style: none;
-        gap: 30px;
+        gap: 50px;
         margin: 0;
     }
+
     nav ul li a {
         color: #fff;
         text-decoration: none;
@@ -73,17 +86,20 @@
         transition: color 0.3s, transform 0.2s;
         cursor: pointer;
     }
+
     nav ul li a:hover {
         color: #ff6f61;
         transform: scale(1.1);
     }
-    /* Bottoni Login / Sign Up a destra */
+
+    /* Bottoni Auth a destra */
     .auth-buttons {
         display: flex;
         gap: 15px;
     }
+
     .auth-btn {
-        padding: 10px 20px;
+        padding: 10px 22px;
         font-size: 16px;
         font-weight: bold;
         text-decoration: none;
@@ -91,26 +107,31 @@
         transition: all 0.3s ease;
         cursor: pointer;
     }
+
     .btn-login {
         background: transparent;
         color: #fff;
         border: 2px solid #fff;
     }
+
     .btn-login:hover {
         background: #fff;
         color: #000;
         transform: translateY(-2px);
     }
+
     .btn-signup {
         background-color: #ff6f61;
         color: #fff;
         border: none;
     }
+
     .btn-signup:hover {
         background-color: #e65b50;
         transform: translateY(-2px);
     }
-    /* ------------------ STILE COMUNE PER TUTTE LE SEZIONI ------------------ */
+
+    /* Stili sezioni (invariati) */
     .section {
         background-color: rgba(0,0,0,0.7);
         display: flex;
@@ -119,6 +140,7 @@
         padding-top: 200px;
         padding-bottom: 40px;
     }
+
     .section .section-content {
         background-color: rgba(0,0,0,0.9);
         padding: 60px;
@@ -128,17 +150,20 @@
         width: 90%;
         margin: 0 auto;
     }
-    .section-title, .section-title-center {
+
+    .section-title {
         font-size: 50px;
         font-weight: bold;
         margin-bottom: 40px;
         text-align: center;
     }
+
     .section-text {
         font-size: 26px;
         line-height: 1.6;
     }
-    /* ---------------- Sezione Giochi ---------------- */
+
+    /* Sezione Giochi */
     .game-catalog {
         display: flex;
         justify-content: space-between;
@@ -146,25 +171,35 @@
         width: 100%;
         max-width: 1200px;
     }
+
     .game-catalog img {
         width: 40%;
         height: auto;
         border-radius: 10px;
     }
+
     .game-description {
         width: 55%;
         color: #fff;
         padding-left: 20px;
     }
-    .game-catalog h3 { font-size: 26px; margin-bottom: 15px; }
-    .game-catalog p { font-size: 22px; }
-    /* NUOVI STILI SOLO PER I PULSANTI nella sezione Giochi */
+
+    .game-catalog h3 {
+        font-size: 26px;
+        margin-bottom: 15px;
+    }
+
+    .game-catalog p {
+        font-size: 22px;
+    }
+
     .cta-buttons {
         margin-top: 25px;
         display: flex;
         gap: 20px;
         flex-wrap: wrap;
     }
+
     .btn {
         display: inline-block;
         padding: 14px 28px;
@@ -175,25 +210,30 @@
         transition: all 0.3s ease;
         cursor: pointer;
     }
+
     .btn-primary {
         background-color: #ff6f61;
         color: #fff;
         border: none;
     }
+
     .btn-primary:hover {
         background-color: #e65b50;
         transform: translateY(-2px);
     }
+
     .btn-outline {
         background: transparent;
         color: #ff6f61;
         border: 2px solid #ff6f61;
     }
+
     .btn-outline:hover {
         background-color: #ff6f61;
         color: #fff;
     }
-    /* ---------------- Supporto ---------------- */
+
+    /* Supporto */
     .support-info {
         display: flex;
         flex-direction: column;
@@ -202,7 +242,11 @@
         font-size: 22px;
         text-align: center;
     }
-    .support-info p { font-size: 26px; }
+
+    .support-info p {
+        font-size: 26px;
+    }
+
     .support-info .support-item {
         display: flex;
         align-items: center;
@@ -214,6 +258,7 @@
         max-width: 600px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     }
+
     /* Footer */
     footer {
         background-color: #111;
@@ -221,7 +266,31 @@
         text-align: center;
         color: #fff;
     }
-    .footer-content { font-size: 18px; }
+
+    .footer-content {
+        font-size: 18px;
+    }
+
+    @media (max-width: 900px) {
+        header {
+            flex-wrap: wrap;
+            padding: 15px 20px;
+        }
+        .main-nav {
+            order: 3;
+            width: 100%;
+            justify-content: center;
+            margin: 15px 0;
+        }
+        nav ul {
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .auth-buttons {
+            order: 2;
+        }
+    }
 </style>
 </head>
 <body>
@@ -231,17 +300,21 @@
         <div class="logo"><a href="#"><img src="https://i.imgur.com/8SUgbwa.png" alt="Logo Hydra"></a></div>
         <div class="company-name">HYDRA</div>
     </div>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#giochi">Giochi</a></li>
-            <li><a href="#supporto">Supporto</a></li>
-        </ul>
-        <div class="auth-buttons">
-            <a href="#" class="auth-btn btn-login">Login</a>
-            <a href="#" class="auth-btn btn-signup">Sign Up</a>
-        </div>
-    </nav>
+
+    <div class="main-nav">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#giochi">Giochi</a></li>
+                <li><a href="#supporto">Supporto</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="auth-buttons">
+        <a href="#" class="auth-btn btn-login">Login</a>
+        <a href="#" class="auth-btn btn-signup">Sign Up</a>
+    </div>
 </header>
 
 <!-- Chi Siamo -->
@@ -263,7 +336,6 @@
                 <h3>Decode</h3>
                 <p>Decode è un FPS rompicapo ambientato in eventi storici che hanno segnato il corso della storia. Dovrai decifrare vari cifrari, come "binario" e "cifrario cesare", con l'obiettivo di sabotare il nemico.</p>
                
-                <!-- Pulsanti aggiunti -->
                 <div class="cta-buttons">
                     <a href="#" class="btn btn-primary">Guarda il trailer</a>
                     <a href="#" class="btn btn-outline">Wishlist su Steam</a>
