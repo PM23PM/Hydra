@@ -63,17 +63,17 @@
         margin-left: 20px;
     }
 
-    /* Nav principale al centro */
-    .main-nav {
-        flex: 1;
+    /* Contenitore destro: menu + auth */
+    .right-header {
         display: flex;
-        justify-content: center;
+        align-items: center;
+        gap: 50px;
     }
 
     nav ul {
         display: flex;
         list-style: none;
-        gap: 50px;
+        gap: 40px;
         margin: 0;
     }
 
@@ -92,7 +92,7 @@
         transform: scale(1.1);
     }
 
-    /* Bottoni Auth a destra */
+    /* Bottoni Auth */
     .auth-buttons {
         display: flex;
         gap: 15px;
@@ -163,7 +163,6 @@
         line-height: 1.6;
     }
 
-    /* Sezione Giochi */
     .game-catalog {
         display: flex;
         justify-content: space-between;
@@ -233,7 +232,6 @@
         color: #fff;
     }
 
-    /* Supporto */
     .support-info {
         display: flex;
         flex-direction: column;
@@ -259,7 +257,6 @@
         box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     }
 
-    /* Footer */
     footer {
         background-color: #111;
         padding: 30px;
@@ -276,19 +273,15 @@
             flex-wrap: wrap;
             padding: 15px 20px;
         }
-        .main-nav {
-            order: 3;
-            width: 100%;
-            justify-content: center;
-            margin: 15px 0;
+        .right-header {
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 10px;
         }
         nav ul {
-            gap: 25px;
+            gap: 20px;
             flex-wrap: wrap;
             justify-content: center;
-        }
-        .auth-buttons {
-            order: 2;
         }
     }
 </style>
@@ -301,7 +294,7 @@
         <div class="company-name">HYDRA</div>
     </div>
 
-    <div class="main-nav">
+    <div class="right-header">
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -309,11 +302,11 @@
                 <li><a href="#supporto">Supporto</a></li>
             </ul>
         </nav>
-    </div>
 
-    <div class="auth-buttons">
-        <a href="#" class="auth-btn btn-login">Login</a>
-        <a href="#" class="auth-btn btn-signup">Sign Up</a>
+        <div class="auth-buttons">
+            <a href="#" class="auth-btn btn-login">Login</a>
+            <a href="#" class="auth-btn btn-signup">Sign Up</a>
+        </div>
     </div>
 </header>
 
@@ -359,10 +352,9 @@
 
 <footer>
     <div class="footer-content">
-        <p>&copy; 2026 Hydra. Tutti i diritti riservati.</p>
+        <p>&copy; 2025 Hydra. Tutti i diritti riservati.</p>
     </div>
 </footer>
 
 </body>
 </html>
-
