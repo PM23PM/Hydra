@@ -120,7 +120,7 @@
         transform: translateY(-2px);
     }
 
-    /* Modal Login */
+    /* Modal (comune per login e signup) */
     .modal {
         display: none;
         position: fixed;
@@ -139,7 +139,7 @@
         padding: 40px;
         border-radius: 12px;
         width: 90%;
-        max-width: 420px;
+        max-width: 460px;
         box-shadow: 0 10px 40px rgba(0,0,0,0.6);
         position: relative;
     }
@@ -209,7 +209,7 @@
         background-color: #e65b50;
     }
 
-    /* Resto stili invariati (sezioni, giochi, supporto, footer) */
+    /* Resto stili invariati */
     .section {
         background-color: rgba(0,0,0,0.7);
         display: flex;
@@ -354,7 +354,7 @@
 
         <div class="auth-buttons">
             <a href="#" id="loginBtn" class="auth-btn btn-login">Login</a>
-            <a href="#" class="auth-btn btn-signup">Sign Up</a>
+            <a href="#" id="signupBtn" class="auth-btn btn-signup">Sign Up</a>
         </div>
     </div>
 </header>
@@ -362,18 +362,53 @@
 <!-- Modal Login -->
 <div id="loginModal" class="modal">
     <div class="modal-content">
-        <span class="close" id="closeModal">&times;</span>
+        <span class="close" id="closeLogin">&times;</span>
         <h2>Login</h2>
         <form id="loginForm">
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required placeholder="esempio@hydra.com">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" name="email" required placeholder="esempio@hydra.com">
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required placeholder="••••••••">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" name="password" required placeholder="••••••••">
             </div>
             <button type="submit" class="submit-btn">Accedi</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal Sign Up -->
+<div id="signupModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeSignup">&times;</span>
+        <h2>Registrazione</h2>
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" required placeholder="Mario">
+            </div>
+            <div class="form-group">
+                <label for="cognome">Cognome</label>
+                <input type="text" id="cognome" name="cognome" required placeholder="Rossi">
+            </div>
+            <div class="form-group">
+                <label for="dataNascita">Data di nascita</label>
+                <input type="date" id="dataNascita" name="dataNascita" required>
+            </div>
+            <div class="form-group">
+                <label for="signupEmail">Email</label>
+                <input type="email" id="signupEmail" name="email" required placeholder="esempio@hydra.com">
+            </div>
+            <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" name="password" required placeholder="••••••••">
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Conferma Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="••••••••">
+            </div>
+            <button type="submit" class="submit-btn">Registrati</button>
         </form>
     </div>
 </div>
@@ -424,42 +459,82 @@
     </div>
 </footer>
 
-<!-- JavaScript per aprire/chiudere il modal -->
+<!-- JavaScript per i modal -->
 <script>
-    const modal = document.getElementById("loginModal");
-    const btn = document.getElementById("loginBtn");
-    const span = document.getElementById("closeModal");
+// Login Modal
+const loginModal = document.getElementById("loginModal");
+const loginBtn = document.getElementById("loginBtn");
+const closeLogin = document.getElementById("closeLogin");
 
-    // Apri modal
-    btn.onclick = function(e) {
-        e.preventDefault();
-        modal.style.display = "flex";
+loginBtn.onclick = function(e) {
+    e.preventDefault();
+    loginModal.style.display = "flex";
+}
+
+closeLogin.onclick = function() {
+    loginModal.style.display = "none";
+}
+
+// Sign Up Modal
+const signupModal = document.getElementById("signupModal");
+const signupBtn = document.getElementById("signupBtn");
+const closeSignup = document.getElementById("closeSignup");
+
+signupBtn.onclick = function(e) {
+    e.preventDefault();
+    signupModal.style.display = "flex";
+}
+
+closeSignup.onclick = function() {
+    signupModal.style.display = "none";
+}
+
+// Chiudi modal cliccando fuori
+window.onclick = function(event) {
+    if (event.target == loginModal) {
+        loginModal.style.display = "none";
+    }
+    if (event.target == signupModal) {
+        signupModal.style.display = "none";
+    }
+}
+
+// Gestione form Login (demo)
+document.getElementById("loginForm").onsubmit = function(e) {
+    e.preventDefault();
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+    
+    if (email && password) {
+        alert("Tentativo di login con:\nEmail: " + email);
+        loginModal.style.display = "none";
+    }
+}
+
+// Gestione form Sign Up (demo + validazione password)
+document.getElementById("signupForm").onsubmit = function(e) {
+    e.preventDefault();
+    
+    const nome = document.getElementById("nome").value;
+    const cognome = document.getElementById("cognome").value;
+    const dataNascita = document.getElementById("dataNascita").value;
+    const email = document.getElementById("signupEmail").value;
+    const password = document.getElementById("signupPassword").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (!nome || !cognome || !dataNascita || !email || !password || !confirmPassword) {
+        alert("Compila tutti i campi obbligatori!");
+        return;
     }
 
-    // Chiudi modal cliccando sulla X
-    span.onclick = function() {
-        modal.style.display = "none";
+    if (password !== confirmPassword) {
+        alert("Le password non coincidono!");
+        return;
     }
 
-    // Chiudi modal cliccando fuori dal contenuto
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-
-    // Gestione submit (solo demo – puoi collegare a backend)
-    document.getElementById("loginForm").onsubmit = function(e) {
-        e.preventDefault();
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        
-        if (email && password) {
-            alert("Tentativo di login con:\nEmail: " + email + "\nPassword: [nascosta]");
-            // Qui in futuro: fetch('/api/login', {method: 'POST', body: JSON.stringify({email, password})})
-            modal.style.display = "none";
-        }
-    }
+    alert("Registrazione completata (demo):\nNome: " + nome + " " + cognome + "\nData nascita: " + dataNascita + "\nEmail: " + email);
+    signupModal.style.display = "none";
+}
 </script>
 
 </body>
