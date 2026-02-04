@@ -53,10 +53,16 @@
         letter-spacing: 5px;
         margin-left: 20px;
     }
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 40px; /* spazio tra menu e bottoni */
+    }
     nav ul {
         display: flex;
         list-style: none;
         gap: 30px;
+        margin: 0;
     }
     nav ul li a {
         color: #fff;
@@ -70,6 +76,39 @@
     nav ul li a:hover {
         color: #ff6f61;
         transform: scale(1.1);
+    }
+    /* Bottoni Login / Sign Up a destra */
+    .auth-buttons {
+        display: flex;
+        gap: 15px;
+    }
+    .auth-btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    .btn-login {
+        background: transparent;
+        color: #fff;
+        border: 2px solid #fff;
+    }
+    .btn-login:hover {
+        background: #fff;
+        color: #000;
+        transform: translateY(-2px);
+    }
+    .btn-signup {
+        background-color: #ff6f61;
+        color: #fff;
+        border: none;
+    }
+    .btn-signup:hover {
+        background-color: #e65b50;
+        transform: translateY(-2px);
     }
     /* ------------------ STILE COMUNE PER TUTTE LE SEZIONI ------------------ */
     .section {
@@ -119,7 +158,6 @@
     }
     .game-catalog h3 { font-size: 26px; margin-bottom: 15px; }
     .game-catalog p { font-size: 22px; }
-
     /* NUOVI STILI SOLO PER I PULSANTI nella sezione Giochi */
     .cta-buttons {
         margin-top: 25px;
@@ -154,17 +192,6 @@
     .btn-outline:hover {
         background-color: #ff6f61;
         color: #fff;
-    }
-
-    /* ---------------- Community ---------------- */
-    .community-icons img {
-        width: 80px;
-        height: 80px;
-        margin: 10px 20px;
-        transition: transform 0.3s ease-in-out;
-    }
-    .community-icons img:hover {
-        transform: scale(1.2);
     }
     /* ---------------- Supporto ---------------- */
     .support-info {
@@ -210,6 +237,10 @@
             <li><a href="#giochi">Giochi</a></li>
             <li><a href="#supporto">Supporto</a></li>
         </ul>
+        <div class="auth-buttons">
+            <a href="#" class="auth-btn btn-login">Login</a>
+            <a href="#" class="auth-btn btn-signup">Sign Up</a>
+        </div>
     </nav>
 </header>
 
@@ -223,7 +254,7 @@
     </div>
 </section>
 
-<!-- Giochi – SOLO QUI le modifiche -->
+<!-- Giochi -->
 <section id="giochi" class="section">
     <div class="section-content">
         <div class="game-catalog">
@@ -231,7 +262,7 @@
             <div class="game-description">
                 <h3>Decode</h3>
                 <p>Decode è un FPS rompicapo ambientato in eventi storici che hanno segnato il corso della storia. Dovrai decifrare vari cifrari, come "binario" e "cifrario cesare", con l'obiettivo di sabotare il nemico.</p>
-                
+               
                 <!-- Pulsanti aggiunti -->
                 <div class="cta-buttons">
                     <a href="#" class="btn btn-primary">Guarda il trailer</a>
@@ -241,7 +272,6 @@
         </div>
     </div>
 </section>
-
 
 <!-- Supporto -->
 <section id="supporto" class="section">
@@ -263,7 +293,3 @@
 
 </body>
 </html>
-
-
-
-
