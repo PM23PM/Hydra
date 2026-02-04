@@ -72,26 +72,23 @@
         transform: scale(1.1);
     }
     /* ------------------ STILE COMUNE PER TUTTE LE SEZIONI ------------------ */
-   /* Sfondo nero esterno uguale alla Community per tutte le sezioni */
-/* Sfondo nero semi-trasparente esterno applicato a tutte le sezioni */
-.section {
-    background-color: rgba(0,0,0,0.7); /* stesso sfondo della Community */
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 200px; /* distanza dall'header */
-    padding-bottom: 40px;
-}
-/* Mantieni il blocco interno con padding e ombra */
-.section .section-content {
-    background-color: rgba(0,0,0,0.9); /* blocco interno */
-    padding: 60px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    max-width: 1000px;
-    width: 90%;
-    margin: 0 auto;
-}
+    .section {
+        background-color: rgba(0,0,0,0.7);
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 200px;
+        padding-bottom: 40px;
+    }
+    .section .section-content {
+        background-color: rgba(0,0,0,0.9);
+        padding: 60px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        max-width: 1000px;
+        width: 90%;
+        margin: 0 auto;
+    }
     .section-title, .section-title-center {
         font-size: 50px;
         font-weight: bold;
@@ -122,16 +119,53 @@
     }
     .game-catalog h3 { font-size: 26px; margin-bottom: 15px; }
     .game-catalog p { font-size: 22px; }
+
+    /* NUOVI STILI SOLO PER I PULSANTI nella sezione Giochi */
+    .cta-buttons {
+        margin-top: 25px;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    .btn {
+        display: inline-block;
+        padding: 14px 28px;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    .btn-primary {
+        background-color: #ff6f61;
+        color: #fff;
+        border: none;
+    }
+    .btn-primary:hover {
+        background-color: #e65b50;
+        transform: translateY(-2px);
+    }
+    .btn-outline {
+        background: transparent;
+        color: #ff6f61;
+        border: 2px solid #ff6f61;
+    }
+    .btn-outline:hover {
+        background-color: #ff6f61;
+        color: #fff;
+    }
+
     /* ---------------- Community ---------------- */
-.community-icons img {
-    width: 80px;
-    height: 80px;
-    margin: 10px 20px; /* spazio uniforme tra le icone */
-    transition: transform 0.3s ease-in-out;
-}
-.community-icons img:hover {
-    transform: scale(1.2);
-}
+    .community-icons img {
+        width: 80px;
+        height: 80px;
+        margin: 10px 20px;
+        transition: transform 0.3s ease-in-out;
+    }
+    .community-icons img:hover {
+        transform: scale(1.2);
+    }
     /* ---------------- Supporto ---------------- */
     .support-info {
         display: flex;
@@ -164,6 +198,7 @@
 </style>
 </head>
 <body>
+
 <header>
     <div class="header-content">
         <div class="logo"><a href="#"><img src="https://i.imgur.com/8SUgbwa.png" alt="Logo Hydra"></a></div>
@@ -178,6 +213,7 @@
         </ul>
     </nav>
 </header>
+
 <!-- Chi Siamo -->
 <section id="home" class="section">
     <div class="section-content">
@@ -187,7 +223,8 @@
         </p>
     </div>
 </section>
-<!-- Giochi -->
+
+<!-- Giochi – SOLO QUI le modifiche -->
 <section id="giochi" class="section">
     <div class="section-content">
         <div class="game-catalog">
@@ -195,12 +232,17 @@
             <div class="game-description">
                 <h3>Decode</h3>
                 <p>Decode è un FPS rompicapo ambientato in eventi storici che hanno segnato il corso della storia. Dovrai decifrare vari cifrari, come "binario" e "cifrario cesare", con l'obiettivo di sabotare il nemico.</p>
-           <a href="#" class="btn btn-primary">Guarda il trailer</a>
-        <a href="#" class="btn btn-outline">Wishlist su Steam</a>
+                
+                <!-- Pulsanti aggiunti -->
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">Guarda il trailer</a>
+                    <a href="#" class="btn btn-outline">Wishlist su Steam</a>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
 <!-- Sezione Community -->
 <section id="community" class="section">
     <div class="section-content community-content">
@@ -219,6 +261,7 @@
         </div>
     </div>
 </section>
+
 <!-- Supporto -->
 <section id="supporto" class="section">
     <div class="section-content">
@@ -230,12 +273,12 @@
         </div>
     </div>
 </section>
+
 <footer>
     <div class="footer-content">
         <p>&copy; 2025 Hydra. Tutti i diritti riservati.</p>
     </div>
 </footer>
+
 </body>
 </html>
- 
-hai qualche consiglio per renderlo più serio , fluido e moderno
