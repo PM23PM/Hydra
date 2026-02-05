@@ -121,7 +121,7 @@
         background: #e65b50;
     }
 
-    /* Modal */
+    /* Modal generale */
     .modal {
         display: none;
         position: fixed;
@@ -137,7 +137,7 @@
         padding: 30px;
         border-radius: 10px;
         width: 90%;
-        max-width: 420px;
+        max-width: 480px;
         box-shadow: 0 8px 35px rgba(0,0,0,0.7);
         position: relative;
     }
@@ -154,11 +154,13 @@
 
     .modal h2 { text-align: center; margin-bottom: 25px; font-size: 26px; }
 
-    .form-group { margin-bottom: 16px; }
+    .form-group { margin-bottom: 18px; }
 
     .form-group label { display: block; margin-bottom: 6px; font-weight: bold; font-size: 14px; }
 
-    .form-group input {
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
         width: 100%;
         padding: 10px;
         background: #111;
@@ -166,11 +168,20 @@
         border-radius: 5px;
         color: #fff;
         font-size: 15px;
+        font-family: inherit;
     }
 
-    .form-group input:focus {
+    .form-group textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
         border-color: #ff6f61;
         box-shadow: 0 0 0 3px rgba(255,111,97,0.2);
+        outline: none;
     }
 
     .submit-btn {
@@ -186,10 +197,10 @@
     }
     .submit-btn:hover { background: #e65b50; }
 
-    /* ======================= SEZIONI – sfondo pulito e arioso ======================= */
+    /* Sezioni */
     .section {
         min-height: 100vh;
-        background: rgba(10,10,20,0.25); /* velo leggerissimo invece del blocco nero */
+        background: rgba(10,10,20,0.25);
         backdrop-filter: blur(3px);
         display: none;
         align-items: center;
@@ -231,7 +242,38 @@
         color: #e8e8e8;
     }
 
-    /* Giochi */
+    /* Supporto specifico */
+    .support-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        font-size: 21px;
+        text-align: center;
+    }
+
+    .support-info p {
+        font-size: 24px;
+    }
+
+    .report-btn {
+        padding: 14px 30px;
+        font-size: 17px;
+        font-weight: bold;
+        background: #ff6f61;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .report-btn:hover {
+        background: #e65b50;
+        transform: translateY(-2px);
+    }
+
+    /* Giochi, FAQ, footer invariati ma adattati */
     .game-catalog {
         display: flex;
         gap: 40px;
@@ -279,7 +321,6 @@
     .btn-outline { border: 2px solid #ff6f61; color: #ff6f61; }
     .btn-outline:hover { background: #ff6f61; color: white; }
 
-    /* FAQ */
     .faq-item {
         margin-bottom: 20px;
         border-bottom: 1px solid rgba(255,255,255,0.12);
@@ -319,27 +360,6 @@
     .faq-item.active .faq-answer {
         max-height: 800px;
         padding: 20px 20px 30px;
-    }
-
-    /* Supporto */
-    .support-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        font-size: 21px;
-        text-align: center;
-    }
-
-    .support-info p { font-size: 24px; }
-
-    .support-item {
-        background: rgba(20,20,30,0.75);
-        padding: 18px;
-        border-radius: 12px;
-        width: 80%;
-        max-width: 580px;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.4);
     }
 
     footer {
@@ -440,6 +460,44 @@
     </div>
 </div>
 
+<!-- Modal Segnalazione (nuovo) -->
+<div id="reportModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeReport">×</span>
+        <h2>Invia Segnalazione</h2>
+        <form id="reportForm">
+            <div class="form-group">
+                <label for="reportNome">Nome</label>
+                <input type="text" id="reportNome" required placeholder="Mario">
+            </div>
+            <div class="form-group">
+                <label for="reportCognome">Cognome</label>
+                <input type="text" id="reportCognome" required placeholder="Rossi">
+            </div>
+            <div class="form-group">
+                <label for="reportEmail">Email</label>
+                <input type="email" id="reportEmail" required placeholder="esempio@hydra.com">
+            </div>
+            <div class="form-group">
+                <label for="reportTipo">Tipo di segnalazione</label>
+                <select id="reportTipo" required>
+                    <option value="" disabled selected>Seleziona...</option>
+                    <option value="bug">Bug / Problema tecnico</option>
+                    <option value="feedback">Feedback sul gioco</option>
+                    <option value="suggerimento">Suggerimento / Idea</option>
+                    <option value="contenuto">Contenuto offensivo / inappropriato</option>
+                    <option value="altro">Altro</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="reportMessaggio">Argomentazioni / Dettagli</label>
+                <textarea id="reportMessaggio" required placeholder="Descrivi il problema o il tuo messaggio qui..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Invia Segnalazione</button>
+        </form>
+    </div>
+</div>
+
 <!-- ======================= SEZIONI ======================= -->
 
 <section id="home" class="section active">
@@ -474,6 +532,7 @@
             <p>Per qualsiasi dubbio, problema o richiesta, non esitare a contattarci:</p>
             <div class="support-item"><p>Email: supporto@hydra.com</p></div>
             <div class="support-item"><p>Telefono: +39 123 456 789</p></div>
+            <button id="openReportBtn" class="report-btn">Invia segnalazione</button>
         </div>
     </div>
 </section>
@@ -533,7 +592,7 @@
 </footer>
 
 <script>
-// Modal
+// Modal Login
 const loginModal = document.getElementById("loginModal");
 const loginBtn = document.getElementById("loginBtn");
 const closeLogin = document.getElementById("closeLogin");
@@ -541,6 +600,7 @@ const closeLogin = document.getElementById("closeLogin");
 loginBtn.onclick = e => { e.preventDefault(); loginModal.style.display = "flex"; };
 closeLogin.onclick = () => loginModal.style.display = "none";
 
+// Modal Sign Up
 const signupModal = document.getElementById("signupModal");
 const signupBtn = document.getElementById("signupBtn");
 const closeSignup = document.getElementById("closeSignup");
@@ -548,9 +608,19 @@ const closeSignup = document.getElementById("closeSignup");
 signupBtn.onclick = e => { e.preventDefault(); signupModal.style.display = "flex"; };
 closeSignup.onclick = () => signupModal.style.display = "none";
 
+// Modal Segnalazione
+const reportModal = document.getElementById("reportModal");
+const openReportBtn = document.getElementById("openReportBtn");
+const closeReport = document.getElementById("closeReport");
+
+openReportBtn.onclick = () => reportModal.style.display = "flex";
+closeReport.onclick = () => reportModal.style.display = "none";
+
+// Chiudi modal cliccando fuori
 window.onclick = e => {
     if (e.target === loginModal) loginModal.style.display = "none";
     if (e.target === signupModal) signupModal.style.display = "none";
+    if (e.target === reportModal) reportModal.style.display = "none";
 };
 
 // Form demo
@@ -567,6 +637,24 @@ document.getElementById("signupForm").onsubmit = e => {
     if (pw !== cpw) return alert("Le password non coincidono!");
     alert("Registrazione demo completata!");
     signupModal.style.display = "none";
+};
+
+// Form Segnalazione demo
+document.getElementById("reportForm").onsubmit = e => {
+    e.preventDefault();
+    const nome = document.getElementById("reportNome").value;
+    const cognome = document.getElementById("reportCognome").value;
+    const email = document.getElementById("reportEmail").value;
+    const tipo = document.getElementById("reportTipo").value;
+    const messaggio = document.getElementById("reportMessaggio").value.trim();
+
+    if (!nome || !cognome || !email || !tipo || !messaggio) {
+        alert("Compila tutti i campi obbligatori!");
+        return;
+    }
+
+    alert("Segnalazione inviata (demo):\nNome: " + nome + " " + cognome + "\nEmail: " + email + "\nTipo: " + tipo + "\nMessaggio: " + messaggio.substring(0,100) + "...");
+    reportModal.style.display = "none";
 };
 
 // Single-page
