@@ -242,38 +242,7 @@
         color: #e8e8e8;
     }
 
-    /* Supporto specifico */
-    .support-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-        font-size: 21px;
-        text-align: center;
-    }
-
-    .support-info p {
-        font-size: 24px;
-    }
-
-    .report-btn {
-        padding: 14px 30px;
-        font-size: 17px;
-        font-weight: bold;
-        background: #ff6f61;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: all 0.3s;
-    }
-
-    .report-btn:hover {
-        background: #e65b50;
-        transform: translateY(-2px);
-    }
-
-    /* Giochi, FAQ, footer invariati ma adattati */
+    /* Giochi */
     .game-catalog {
         display: flex;
         gap: 40px;
@@ -313,6 +282,7 @@
         border-radius: 6px;
         text-decoration: none;
         transition: all 0.3s;
+        cursor: pointer;
     }
 
     .btn-primary { background: #ff6f61; color: white; }
@@ -321,6 +291,54 @@
     .btn-outline { border: 2px solid #ff6f61; color: #ff6f61; }
     .btn-outline:hover { background: #ff6f61; color: white; }
 
+    .btn-preorder {
+        padding: 14px 32px;
+        font-size: 17px;
+        font-weight: bold;
+        background: linear-gradient(135deg, #ff6f61, #ff8a80);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(255,111,97,0.4);
+        transition: all 0.3s;
+    }
+
+    .btn-preorder:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(255,111,97,0.6);
+        background: linear-gradient(135deg, #ff8a80, #ff6f61);
+    }
+
+    /* Supporto */
+    .support-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        font-size: 21px;
+        text-align: center;
+    }
+
+    .support-info p { font-size: 24px; }
+
+    .report-btn {
+        padding: 14px 30px;
+        font-size: 17px;
+        font-weight: bold;
+        background: #ff6f61;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .report-btn:hover {
+        background: #e65b50;
+        transform: translateY(-2px);
+    }
+
+    /* FAQ invariata */
     .faq-item {
         margin-bottom: 20px;
         border-bottom: 1px solid rgba(255,255,255,0.12);
@@ -460,7 +478,7 @@
     </div>
 </div>
 
-<!-- Modal Segnalazione (nuovo) -->
+<!-- Modal Segnalazione -->
 <div id="reportModal" class="modal">
     <div class="modal-content">
         <span class="close" id="closeReport">×</span>
@@ -498,6 +516,62 @@
     </div>
 </div>
 
+<!-- Modal Prenotazione Gioco (nuovo) -->
+<div id="preorderModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closePreorder">×</span>
+        <h2>Prenota Decode</h2>
+        <form id="preorderForm">
+            <div class="form-group">
+                <label for="preNome">Nome</label>
+                <input type="text" id="preNome" required placeholder="Mario">
+            </div>
+            <div class="form-group">
+                <label for="preCognome">Cognome</label>
+                <input type="text" id="preCognome" required placeholder="Rossi">
+            </div>
+            <div class="form-group">
+                <label for="preEmail">Email</label>
+                <input type="email" id="preEmail" required placeholder="esempio@hydra.com">
+            </div>
+            <div class="form-group">
+                <label for="preMetodo">Metodo di pagamento</label>
+                <select id="preMetodo" required>
+                    <option value="" disabled selected>Seleziona metodo...</option>
+                    <option value="carta">Carta di credito / debito</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="bonifico">Bonifico bancario</option>
+                </select>
+            </div>
+
+            <!-- Campi carta (visibili solo se selezionata carta) -->
+            <div id="cartaFields" style="display:none;">
+                <div class="form-group">
+                    <label for="numeroCarta">Numero carta</label>
+                    <input type="text" id="numeroCarta" placeholder="4242 4242 4242 4242" maxlength="19">
+                </div>
+                <div class="form-group" style="display:flex; gap:15px;">
+                    <div style="flex:1;">
+                        <label for="scadenza">Scadenza (MM/AA)</label>
+                        <input type="text" id="scadenza" placeholder="12/28" maxlength="5">
+                    </div>
+                    <div style="flex:1;">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" placeholder="123" maxlength="4">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="preNote">Note (opzionale)</label>
+                <textarea id="preNote" placeholder="Eventuali richieste speciali o informazioni aggiuntive..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Conferma Prenotazione</button>
+        </form>
+    </div>
+</div>
+
 <!-- ======================= SEZIONI ======================= -->
 
 <section id="home" class="section active">
@@ -518,7 +592,7 @@
                 <p>Decode è un FPS rompicapo ambientato in eventi storici che hanno segnato il corso della storia. Dovrai decifrare vari cifrari, come "binario" e "cifrario cesare", con l'obiettivo di sabotare il nemico.</p>
                 <div class="cta-buttons">
                     <a href="#" class="btn btn-primary">Guarda il trailer</a>
-                    <a href="#" class="btn btn-outline">Wishlist su Steam</a>
+                    <button id="preorderBtn" class="btn-preorder">Prenota ora</button>
                 </div>
             </div>
         </div>
@@ -616,11 +690,26 @@ const closeReport = document.getElementById("closeReport");
 openReportBtn.onclick = () => reportModal.style.display = "flex";
 closeReport.onclick = () => reportModal.style.display = "none";
 
+// Modal Prenotazione
+const preorderModal = document.getElementById("preorderModal");
+const preorderBtn = document.getElementById("preorderBtn");
+const closePreorder = document.getElementById("closePreorder");
+
+preorderBtn.onclick = () => preorderModal.style.display = "flex";
+closePreorder.onclick = () => preorderModal.style.display = "none";
+
+// Mostra/nascondi campi carta
+document.getElementById("preMetodo").addEventListener("change", function() {
+    const cartaFields = document.getElementById("cartaFields");
+    cartaFields.style.display = this.value === "carta" ? "block" : "none";
+});
+
 // Chiudi modal cliccando fuori
 window.onclick = e => {
     if (e.target === loginModal) loginModal.style.display = "none";
     if (e.target === signupModal) signupModal.style.display = "none";
     if (e.target === reportModal) reportModal.style.display = "none";
+    if (e.target === preorderModal) preorderModal.style.display = "none";
 };
 
 // Form demo
@@ -639,7 +728,6 @@ document.getElementById("signupForm").onsubmit = e => {
     signupModal.style.display = "none";
 };
 
-// Form Segnalazione demo
 document.getElementById("reportForm").onsubmit = e => {
     e.preventDefault();
     const nome = document.getElementById("reportNome").value;
@@ -655,6 +743,33 @@ document.getElementById("reportForm").onsubmit = e => {
 
     alert("Segnalazione inviata (demo):\nNome: " + nome + " " + cognome + "\nEmail: " + email + "\nTipo: " + tipo + "\nMessaggio: " + messaggio.substring(0,100) + "...");
     reportModal.style.display = "none";
+};
+
+document.getElementById("preorderForm").onsubmit = e => {
+    e.preventDefault();
+    const nome = document.getElementById("preNome").value;
+    const cognome = document.getElementById("preCognome").value;
+    const email = document.getElementById("preEmail").value;
+    const metodo = document.getElementById("preMetodo").value;
+    const note = document.getElementById("preNote").value.trim();
+
+    if (!nome || !cognome || !email || !metodo) {
+        alert("Compila tutti i campi obbligatori!");
+        return;
+    }
+
+    if (metodo === "carta") {
+        const numero = document.getElementById("numeroCarta").value.trim();
+        const scadenza = document.getElementById("scadenza").value.trim();
+        const cvv = document.getElementById("cvv").value.trim();
+        if (!numero || !scadenza || !cvv) {
+            alert("Inserisci i dati della carta completi!");
+            return;
+        }
+    }
+
+    alert("Prenotazione Decode confermata (demo):\nNome: " + nome + " " + cognome + "\nEmail: " + email + "\nMetodo: " + metodo + (note ? "\nNote: " + note : ""));
+    preorderModal.style.display = "none";
 };
 
 // Single-page
