@@ -20,35 +20,20 @@
         line-height: 1.7;
     }
 
-header {
-    position: fixed;
-    top: 18px;          /* distanza dal bordo alto */
-    left: 50%;
-    transform: translateX(-50%);
-
-    width: 95%;
-    max-width: 1300px;
-
-    z-index: 1000;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 14px 30px;
-
-    background: rgba(0, 0, 0, 0.55); /* trasparente */
-    backdrop-filter: blur(14px);     /* sfocatura */
-    -webkit-backdrop-filter: blur(14px);
-
-    border-radius: 16px;  /* angoli stondati */
-    border: 1px solid rgba(255,255,255,0.08);
-
-    box-shadow:
-        0 8px 30px rgba(0,0,0,0.6),
-        inset 0 0 0 1px rgba(255,255,255,0.03);
-}
-
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 40px;
+        z-index: 1000;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        border-bottom: 1px solid #222;
+    }
 
     .header-content {
         display: flex;
@@ -182,7 +167,6 @@ header {
         border-radius: 5px;
         color: #fff;
         font-size: 15px;
-        font-family: inherit;
     }
 
     .form-group textarea {
@@ -211,13 +195,13 @@ header {
     }
     .submit-btn:hover { background: #e65b50; }
 
-    /* Sezioni – sfondo diretto con overlay scuro */
+    /* Sezioni – testo diretto sullo sfondo */
     .section {
         min-height: 100vh;
         display: none;
         align-items: center;
         justify-content: center;
-        padding: 140px 20px 60px;
+        padding: 100px 20px 60px;
         opacity: 0;
         transition: opacity 0.8s ease;
         text-align: center;
@@ -331,76 +315,6 @@ header {
 
     .support-info p { font-size: 25px; }
 
-	.support-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 28px;
-    margin-top: 30px;
-}
-
-.support-card {
-    background: rgba(0,0,0,0.55);
-    backdrop-filter: blur(14px);
-    border-radius: 12px;
-    padding: 22px 18px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-    text-align: center;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.support-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.75);
-}
-
-.support-card h3 {
-    font-size: 22px;
-    margin-bottom: 12px;
-    color: #fff;
-}
-
-.support-card p {
-    font-size: 16px;
-    color: #ccc;
-    margin-bottom: 18px;
-}
-
-.support-btn {
-    padding: 10px 22px;
-    font-size: 15px;
-    font-weight: bold;
-    border-radius: 6px;
-    border: none;
-    background: #ff6f61;
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.support-btn:hover {
-    background: #e65b50;
-    transform: translateY(-2px);
-}
-
-.support-card .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 18px;
-    margin-top: 18px;
-}
-
-.support-card .social-icon img {
-    width: 40px;
-    height: 40px;
-    transition: transform 0.25s ease, filter 0.25s ease;
-}
-
-.support-card .social-icon:hover img {
-    transform: scale(1.2);
-    filter: drop-shadow(0 0 12px #ff6f61);
-}
-
-
     .report-btn {
         padding: 15px 35px;
         font-size: 18px;
@@ -468,6 +382,14 @@ header {
         margin-top: 80px;
     }
 
+    footer a {
+        color: #ff6f61;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
     @media (max-width: 900px) {
         header { padding: 0 20px; }
         .company-name { font-size: 20px; }
@@ -482,7 +404,7 @@ header {
 
 <header>
     <div class="header-content">
-        <div class="logo"><a href="#"><img src="https://i.imgur.com/3eG6kO3.png" alt="Logo Hydra"></a></div>
+        <div class="logo"><a href="#"><img src="https://i.imgur.com/8SUgbwa.png" alt="Logo Hydra"></a></div>
         <div class="company-name">HYDRA</div>
     </div>
 
@@ -650,7 +572,7 @@ header {
     </div>
 </div>
 
-<!-- Sezioni – testo diretto sullo sfondo -->
+<!-- Sezioni -->
 <section id="home" class="section active">
     <div class="section-content">
         <h2 class="section-title">Chi Siamo</h2>
@@ -678,69 +600,16 @@ header {
 </section>
 
 <section id="supporto" class="section">
-  <div class="section-content">
-    <h2 class="section-title">Supporto</h2>
-
-    <div class="support-grid">
-      <div class="support-card">
-        <h3>Recupera Password</h3>
-        <p>Hai dimenticato la password? Reimposta rapidamente e continua a giocare.</p>
-        <button class="support-btn" onclick="alert('Redirect a Recupera Password')">Recupera</button>
-      </div>
-
-      <div class="support-card">
-        <h3>Recupera Email</h3>
-        <p>Non ricordi l’email del tuo account? Scopri come recuperarla.</p>
-        <button class="support-btn" onclick="alert('Redirect a Recupera Email')">Recupera</button>
-      </div>
-
-      <div class="support-card">
-        <h3>Contatta Supporto</h3>
-        <p>Per problemi tecnici, condividili direttamente con il nostro team.</p>
-        <button class="support-btn" id="openReportBtn">Invia Segnalazione</button>
-      </div>
-
-     <div class="support-card">
-    <h3>Social</h3>
-    <p>Consulta i nostri social per avere sempre le ultime informazioni.</p>
-
-    <div class="social-links">
-        <!-- Discord -->
-        <a href="https://discord.com" target="_blank" class="social-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord">
-        </a>
-        <!-- X (ex-Twitter) -->
-        <a href="https://x.com" target="_blank" class="social-icon">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X">
-        </a>
-        <!-- Instagram -->
-        <a href="https://www.instagram.com" target="_blank" class="social-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram">
-        </a>
-        <!-- Nuova icona al posto di YouTube -->
-        <a href="https://www.example.com" target="_blank" class="social-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
-        </a>
+    <div class="section-content">
+        <h2 class="section-title">Supporto</h2>
+        <div class="support-info">
+            <p>Per qualsiasi dubbio, problema o richiesta, non esitare a contattarci:</p>
+            <div class="support-item"><p>Email: supporto@hydra.com</p></div>
+            <div class="support-item"><p>Telefono: +39 123 456 789</p></div>
+            <button id="openReportBtn" class="report-btn">Invia segnalazione</button>
+        </div>
     </div>
-</div>
-<div class="support-card">
-        <h3>Controllo Parentale</h3>
-        <p>Gestisci le impostazioni dei tuoi figli per un’esperienza di gioco sicura e adatta alla loro età.</p>
-        <button class="support-btn" onclick="alert('Redirect a Controllo Parentale')">Imposta</button>
-    </div>
-
-    <div class="support-card">
-        <h3>Autenticazione a Due Fattori</h3>
-        <p>Proteggi il tuo account aggiungendo un ulteriore livello di sicurezza con la 2FA.</p>
-        <button class="support-btn" onclick="alert('Redirect a Autenticazione 2FA')">Attiva</button>
-    </div>
-</div>
-
-	</div>
-    </div>
-  </div>
 </section>
-
 
 <section id="faq" class="section">
     <div class="section-content">
@@ -790,11 +659,67 @@ header {
     </div>
 </section>
 
+<!-- Privacy Policy -->
+<section id="privacy" class="section">
+    <div class="section-content">
+        <h2 class="section-title">Informativa Privacy (GDPR)</h2>
+        <p><strong>Titolare del trattamento</strong>: Hydra – P.IVA 23503618214 – [Inserisci indirizzo sede legale completo], email: privacy@hydra.com</p>
+
+        <p><strong>Dati personali raccolti</strong>: nome, cognome, email, data di nascita (solo registrazione), indirizzo IP, dati di navigazione, eventuali dati di pagamento (gestiti da terze parti).</p>
+
+        <p><strong>Finalità del trattamento</strong>:</p>
+        <ul>
+            <li>Erogazione servizi del sito (registrazione, segnalazioni, prenotazioni)</li>
+            <li>Adempimenti contrattuali e fiscali</li>
+            <li>Invio comunicazioni (se autorizzato)</li>
+        </ul>
+
+        <p><strong>Base giuridica</strong>: consenso (art. 6.1.a GDPR), esecuzione contratto (art. 6.1.b), obblighi di legge (art. 6.1.c).</p>
+
+        <p><strong>Destinatari</strong>: fornitori hosting, provider email, gateway pagamento (solo dati necessari).</p>
+
+        <p><strong>Periodo conservazione</strong>: fino a revoca consenso o per 10 anni (obblighi fiscali).</p>
+
+        <p><strong>Diritti dell'interessato</strong>: accesso, rettifica, cancellazione, limitazione, portabilità, opposizione. Contattaci a privacy@hydra.com.</p>
+
+        <p><strong>Reclamo</strong>: Garante Privacy – www.garanteprivacy.it</p>
+
+        <p>Aggiornata al 05/02/2026</p>
+    </div>
+</section>
+
+<!-- Termini e Condizioni -->
+<section id="termini" class="section">
+    <div class="section-content">
+        <h2 class="section-title">Termini e Condizioni</h2>
+        <p>L'utilizzo del sito e dei servizi Hydra implica l'accettazione dei seguenti termini.</p>
+
+        <h3>1. Proprietà intellettuale</h3>
+        <p>Tutti i contenuti (giochi, testi, immagini, logo) sono di proprietà di Hydra o concessi in licenza. Vietata la riproduzione o modifica senza autorizzazione.</p>
+
+        <h3>2. Registrazione e account</h3>
+        <p>I dati forniti devono essere veritieri. Sei responsabile della custodia delle credenziali.</p>
+
+        <h3>3. Acquisti e prenotazioni</h3>
+        <p>Prezzi in € IVA inclusa. Pagamenti tramite terze parti. Diritto di recesso 14 giorni per prodotti digitali non scaricati (art. 59 Codice del Consumo).</p>
+
+        <h3>4. Limitazione responsabilità</h3>
+        <p>Hydra non risponde di danni indiretti o interruzioni salvo dolo o colpa grave.</p>
+
+        <h3>5. Legge applicabile</h3>
+        <p>Legge italiana. Foro competente: [città sede legale].</p>
+
+        <p>Aggiornati al 05/02/2026</p>
+    </div>
+</section>
+
 <footer>
     <div class="footer-content">
-        <p>© 2026 Hydra. Tutti i diritti riservati.</p>
-        <p>Email: supporto@hydra.com</p>
-        <p>Telefono: +39 123 456 789</p>
+        <p>© 2026 Hydra – Partita IVA: 23503618214</p>
+        <p>
+            <a href="#privacy" onclick="showSection('privacy'); return false;">Privacy Policy</a> | 
+            <a href="#termini" onclick="showSection('termini'); return false;">Termini e Condizioni</a>
+        </p>
     </div>
 </footer>
 
@@ -904,7 +829,7 @@ document.getElementById("preorderForm").onsubmit = e => {
     preorderModal.style.display = "none";
 };
 
-// Single-page
+// Single-page navigation
 document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelectorAll(".nav-link");
     const sections = document.querySelectorAll(".section");
@@ -927,6 +852,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // Avvio: Home
     showSection("home");
 });
 
