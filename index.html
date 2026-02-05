@@ -21,7 +21,7 @@
         background-attachment: fixed;
     }
 
-    /* Header */
+    /* Header (invariato) */
     header {
         display: flex;
         justify-content: space-between;
@@ -84,10 +84,7 @@
         transform: scale(1.1);
     }
 
-    .auth-buttons {
-        display: flex;
-        gap: 15px;
-    }
+    .auth-buttons { display: flex; gap: 15px; }
 
     .auth-btn {
         padding: 10px 22px;
@@ -99,36 +96,19 @@
         cursor: pointer;
     }
 
-    .btn-login {
-        background: transparent;
-        color: #fff;
-        border: 2px solid #fff;
-    }
-    .btn-login:hover {
-        background: #fff;
-        color: #000;
-        transform: translateY(-2px);
-    }
+    .btn-login { background: transparent; color: #fff; border: 2px solid #fff; }
+    .btn-login:hover { background: #fff; color: #000; transform: translateY(-2px); }
 
-    .btn-signup {
-        background-color: #ff6f61;
-        color: #fff;
-        border: none;
-    }
-    .btn-signup:hover {
-        background-color: #e65b50;
-        transform: translateY(-2px);
-    }
+    .btn-signup { background-color: #ff6f61; color: #fff; border: none; }
+    .btn-signup:hover { background-color: #e65b50; transform: translateY(-2px); }
 
-    /* Modal (comune per login e signup) */
+    /* Modal (invariati) */
     .modal {
         display: none;
         position: fixed;
         z-index: 2000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
+        left: 0; top: 0;
+        width: 100%; height: 100%;
         background-color: rgba(0,0,0,0.8);
         align-items: center;
         justify-content: center;
@@ -146,29 +126,18 @@
 
     .close {
         position: absolute;
-        top: 15px;
-        right: 20px;
+        top: 15px; right: 20px;
         color: #aaa;
         font-size: 32px;
         font-weight: bold;
         cursor: pointer;
     }
 
-    .close:hover,
-    .close:focus {
-        color: #ff6f61;
-        text-decoration: none;
-    }
+    .close:hover { color: #ff6f61; }
 
-    .modal h2 {
-        text-align: center;
-        margin-bottom: 30px;
-        color: #fff;
-    }
+    .modal h2 { text-align: center; margin-bottom: 30px; color: #fff; }
 
-    .form-group {
-        margin-bottom: 20px;
-    }
+    .form-group { margin-bottom: 20px; }
 
     .form-group label {
         display: block;
@@ -205,18 +174,16 @@
         transition: background 0.3s;
     }
 
-    .submit-btn:hover {
-        background-color: #e65b50;
-    }
+    .submit-btn:hover { background-color: #e65b50; }
 
-    /* Resto stili invariati */
+    /* Sezioni generali */
     .section {
         background-color: rgba(0,0,0,0.7);
         display: flex;
         justify-content: center;
         align-items: flex-start;
         padding-top: 200px;
-        padding-bottom: 40px;
+        padding-bottom: 80px;
     }
 
     .section .section-content {
@@ -241,6 +208,54 @@
         line-height: 1.6;
     }
 
+    /* FAQ specifica */
+    #faq .faq-item {
+        margin-bottom: 20px;
+        border-bottom: 1px solid #333;
+    }
+
+    .faq-question {
+        cursor: pointer;
+        font-size: 22px;
+        font-weight: bold;
+        padding: 15px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: color 0.3s;
+    }
+
+    .faq-question:hover {
+        color: #ff6f61;
+    }
+
+    .faq-question::after {
+        content: '+';
+        font-size: 28px;
+        font-weight: bold;
+        color: #ff6f61;
+        transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-question::after {
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, padding 0.4s ease;
+        font-size: 20px;
+        color: #ccc;
+        padding: 0 0 0 20px;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 500px; /* adatta in base al contenuto */
+        padding: 20px 0 20px 20px;
+    }
+
+    /* Giochi, Supporto, Footer invariati */
     .game-catalog {
         display: flex;
         justify-content: space-between;
@@ -282,25 +297,11 @@
         cursor: pointer;
     }
 
-    .btn-primary {
-        background-color: #ff6f61;
-        color: #fff;
-        border: none;
-    }
-    .btn-primary:hover {
-        background-color: #e65b50;
-        transform: translateY(-2px);
-    }
+    .btn-primary { background-color: #ff6f61; color: #fff; border: none; }
+    .btn-primary:hover { background-color: #e65b50; transform: translateY(-2px); }
 
-    .btn-outline {
-        background: transparent;
-        color: #ff6f61;
-        border: 2px solid #ff6f61;
-    }
-    .btn-outline:hover {
-        background-color: #ff6f61;
-        color: #fff;
-    }
+    .btn-outline { background: transparent; color: #ff6f61; border: 2px solid #ff6f61; }
+    .btn-outline:hover { background-color: #ff6f61; color: #fff; }
 
     .support-info {
         display: flex;
@@ -453,68 +454,100 @@
     </div>
 </section>
 
+<!-- FAQ (nuova sezione) -->
+<section id="faq" class="section">
+    <div class="section-content">
+        <h2 class="section-title">Domande Frequenti (FAQ)</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">Quando uscirà Decode?</div>
+            <div class="faq-answer">
+                <p>Stiamo lavorando intensamente per completare lo sviluppo. La data di lancio è prevista per la fine del 2026, con una possibile fase Early Access su Steam entro l'estate.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Decode è gratuito o a pagamento?</div>
+            <div class="faq-answer">
+                <p>Decode sarà un titolo a pagamento (prezzo stimato 19,99€), ma prevediamo una demo gratuita per permettere a tutti di provarlo prima dell'acquisto.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Su quali piattaforme sarà disponibile?</div>
+            <div class="faq-answer">
+                <p>Al lancio sarà disponibile su PC (Steam). Stiamo valutando console (PlayStation, Xbox, Nintendo Switch) per fasi successive, in base al successo iniziale.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Ci saranno microtransazioni o DLC?</div>
+            <div class="faq-answer">
+                <p>No, Hydra crede in un modello "paga una volta e gioca". Non ci saranno microtransazioni né pay-to-win. Eventuali contenuti aggiuntivi saranno DLC narrativi a pagamento separato.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Come posso segnalare bug o dare feedback?</div>
+            <div class="faq-answer">
+                <p>Una volta registrati, potrai accedere al nostro canale Discord dedicato o inviare segnalazioni direttamente dall'app di gioco. Il feedback è fondamentale per noi!</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Posso collaborare con Hydra?</div>
+            <div class="faq-answer">
+                <p>Sì! Siamo sempre alla ricerca di talenti (programmatori, artisti, storici, traduttori). Invia la tua candidatura a carriere@hydra.com con portfolio e CV.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 <footer>
     <div class="footer-content">
         <p>&copy; 2025 Hydra. Tutti i diritti riservati.</p>
     </div>
 </footer>
 
-<!-- JavaScript per i modal -->
+<!-- JavaScript per modal e FAQ accordion -->
 <script>
-// Login Modal
+// Modal Login
 const loginModal = document.getElementById("loginModal");
 const loginBtn = document.getElementById("loginBtn");
 const closeLogin = document.getElementById("closeLogin");
 
-loginBtn.onclick = function(e) {
-    e.preventDefault();
-    loginModal.style.display = "flex";
-}
+loginBtn.onclick = (e) => { e.preventDefault(); loginModal.style.display = "flex"; };
+closeLogin.onclick = () => { loginModal.style.display = "none"; };
 
-closeLogin.onclick = function() {
-    loginModal.style.display = "none";
-}
-
-// Sign Up Modal
+// Modal Sign Up
 const signupModal = document.getElementById("signupModal");
 const signupBtn = document.getElementById("signupBtn");
 const closeSignup = document.getElementById("closeSignup");
 
-signupBtn.onclick = function(e) {
-    e.preventDefault();
-    signupModal.style.display = "flex";
-}
-
-closeSignup.onclick = function() {
-    signupModal.style.display = "none";
-}
+signupBtn.onclick = (e) => { e.preventDefault(); signupModal.style.display = "flex"; };
+closeSignup.onclick = () => { signupModal.style.display = "none"; };
 
 // Chiudi modal cliccando fuori
-window.onclick = function(event) {
-    if (event.target == loginModal) {
-        loginModal.style.display = "none";
-    }
-    if (event.target == signupModal) {
-        signupModal.style.display = "none";
-    }
-}
+window.onclick = (event) => {
+    if (event.target == loginModal) loginModal.style.display = "none";
+    if (event.target == signupModal) signupModal.style.display = "none";
+};
 
-// Gestione form Login (demo)
-document.getElementById("loginForm").onsubmit = function(e) {
+// Form Login demo
+document.getElementById("loginForm").onsubmit = (e) => {
     e.preventDefault();
     const email = document.getElementById("loginEmail").value;
     const password = document.getElementById("loginPassword").value;
-    
     if (email && password) {
         alert("Tentativo di login con:\nEmail: " + email);
         loginModal.style.display = "none";
     }
-}
+};
 
-// Gestione form Sign Up (demo + validazione password)
-document.getElementById("signupForm").onsubmit = function(e) {
+// Form Sign Up demo + validazione
+document.getElementById("signupForm").onsubmit = (e) => {
     e.preventDefault();
-    
     const nome = document.getElementById("nome").value;
     const cognome = document.getElementById("cognome").value;
     const dataNascita = document.getElementById("dataNascita").value;
@@ -526,7 +559,6 @@ document.getElementById("signupForm").onsubmit = function(e) {
         alert("Compila tutti i campi obbligatori!");
         return;
     }
-
     if (password !== confirmPassword) {
         alert("Le password non coincidono!");
         return;
@@ -534,7 +566,15 @@ document.getElementById("signupForm").onsubmit = function(e) {
 
     alert("Registrazione completata (demo):\nNome: " + nome + " " + cognome + "\nData nascita: " + dataNascita + "\nEmail: " + email);
     signupModal.style.display = "none";
-}
+};
+
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+        const item = question.parentElement;
+        item.classList.toggle('active');
+    });
+});
 </script>
 
 </body>
