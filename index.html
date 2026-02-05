@@ -14,10 +14,10 @@
 
     body {
         font-family: Arial, sans-serif;
-        color: #f1f1f1;
-        background: url('https://i.imgur.com/NdfNIiy.png') center/cover fixed;
+        color: #f0f0f0;
+        background: url('https://i.imgur.com/NdfNIiy.png') center/cover fixed no-repeat;
         min-height: 100vh;
-        line-height: 1.6;
+        line-height: 1.7;
     }
 
     header {
@@ -25,15 +25,15 @@
         top: 0;
         left: 0;
         right: 0;
-        z-index: 1000;
-        background: rgba(0,0,0,0.85);
-        backdrop-filter: blur(8px);
         height: 40px;
+        z-index: 1000;
+        background: rgba(0,0,0,0.75);
+        backdrop-filter: blur(10px);
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 0 30px;
-        border-bottom: 1px solid rgba(255,255,255,0.15);
+        border-bottom: 1px solid rgba(255,255,255,0.12);
     }
 
     .header-content {
@@ -42,13 +42,13 @@
     }
 
     .logo img {
-        height: 32px;
+        height: 28px;
         width: auto;
     }
 
     .company-name {
-        font-size: 24px;
-        font-weight: bold;
+        font-size: 22px;
+        font-weight: 800;
         color: #fff;
         text-transform: uppercase;
         letter-spacing: 3px;
@@ -58,24 +58,23 @@
     .right-header {
         display: flex;
         align-items: center;
-        gap: 30px;
+        gap: 28px;
     }
 
     nav ul {
         display: flex;
         list-style: none;
-        gap: 28px;
+        gap: 24px;
         margin: 0;
     }
 
     nav ul li a {
         color: #ddd;
         text-decoration: none;
-        font-size: 14px;
+        font-size: 13.5px;
         font-weight: 600;
         text-transform: uppercase;
         transition: color 0.25s;
-        cursor: pointer;
     }
 
     nav ul li a:hover,
@@ -85,7 +84,7 @@
 
     nav ul li a.active {
         border-bottom: 2px solid #ff6f61;
-        padding-bottom: 3px;
+        padding-bottom: 2px;
     }
 
     .auth-buttons {
@@ -100,7 +99,6 @@
         border-radius: 5px;
         text-decoration: none;
         transition: all 0.25s;
-        cursor: pointer;
     }
 
     .btn-login {
@@ -123,7 +121,7 @@
         background: #e65b50;
     }
 
-    /* Modal invariati (ridimensionati leggermente per coerenza) */
+    /* Modal */
     .modal {
         display: none;
         position: fixed;
@@ -135,7 +133,7 @@
     }
 
     .modal-content {
-        background: rgba(15,15,25,0.98);
+        background: rgba(15,15,25,0.97);
         padding: 30px;
         border-radius: 10px;
         width: 90%;
@@ -188,17 +186,17 @@
     }
     .submit-btn:hover { background: #e65b50; }
 
-    /* ======================= SEZIONI – sfondo leggero e arioso ======================= */
+    /* ======================= SEZIONI – sfondo pulito e arioso ======================= */
     .section {
-        background: rgba(10,10,20,0.45); /* molto più trasparente, quasi invisibile */
-        backdrop-filter: blur(4px); /* leggero effetto vetro */
-        min-height: auto;
+        min-height: 100vh;
+        background: rgba(10,10,20,0.25); /* velo leggerissimo invece del blocco nero */
+        backdrop-filter: blur(3px);
         display: none;
-        align-items: flex-start;
+        align-items: center;
         justify-content: center;
-        padding: 110px 20px 80px; /* ridotto top per header 40px */
+        padding: 100px 20px 60px;
         opacity: 0;
-        transition: opacity 0.7s ease;
+        transition: opacity 0.8s ease;
     }
 
     .section.active {
@@ -207,65 +205,67 @@
     }
 
     .section-content {
-        background: rgba(15,15,25,0.75); /* sfondo interno più morbido */
-        padding: 45px 35px;
-        border-radius: 12px;
-        box-shadow: 0 6px 35px rgba(0,0,0,0.45);
-        max-width: 1200px;
-        width: 94%;
-        backdrop-filter: blur(6px);
+        max-width: 1100px;
+        width: 92%;
+        padding: 40px;
+        background: rgba(15,15,25,0.65);
+        border-radius: 16px;
+        backdrop-filter: blur(8px);
+        box-shadow: 0 8px 40px rgba(0,0,0,0.4);
     }
 
     .section-title {
-        font-size: 42px;
-        font-weight: bold;
+        font-size: 44px;
+        font-weight: 700;
         text-align: center;
-        margin-bottom: 30px;
-        color: #fff;
+        margin-bottom: 35px;
+        color: #ffffff;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.6);
     }
 
     .section-text {
         font-size: 22px;
-        line-height: 1.65;
+        line-height: 1.75;
         max-width: 90ch;
         margin: 0 auto;
-        color: #e0e0e0;
+        color: #e8e8e8;
     }
 
-    /* Giochi – adattato */
+    /* Giochi */
     .game-catalog {
         display: flex;
-        gap: 35px;
+        gap: 40px;
         align-items: center;
         flex-wrap: wrap;
     }
 
     .game-catalog img {
-        width: 38%;
-        min-width: 320px;
-        border-radius: 10px;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        width: 40%;
+        min-width: 340px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
     .game-description {
         flex: 1;
-        min-width: 320px;
+        min-width: 340px;
     }
 
     .game-catalog h3 {
-        font-size: 28px;
-        margin-bottom: 16px;
+        font-size: 30px;
+        margin-bottom: 18px;
+        color: #fff;
     }
 
     .cta-buttons {
-        margin-top: 22px;
+        margin-top: 28px;
         display: flex;
-        gap: 16px;
+        gap: 18px;
         flex-wrap: wrap;
     }
 
     .btn {
-        padding: 12px 24px;
+        padding: 12px 26px;
         font-size: 16px;
         font-weight: bold;
         border-radius: 6px;
@@ -281,15 +281,15 @@
 
     /* FAQ */
     .faq-item {
-        margin-bottom: 16px;
-        border-bottom: 1px solid #333;
+        margin-bottom: 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.12);
     }
 
     .faq-question {
         cursor: pointer;
-        font-size: 20px;
-        font-weight: bold;
-        padding: 15px 0;
+        font-size: 21px;
+        font-weight: 600;
+        padding: 18px 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -300,7 +300,7 @@
 
     .faq-question::after {
         content: '+';
-        font-size: 26px;
+        font-size: 28px;
         color: #ff6f61;
         transition: transform 0.3s;
     }
@@ -311,14 +311,14 @@
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.5s ease, padding 0.4s ease;
-        font-size: 18px;
-        color: #ccc;
+        font-size: 19px;
+        color: #d0d0d0;
         padding: 0 20px;
     }
 
     .faq-item.active .faq-answer {
-        max-height: 700px;
-        padding: 16px 20px 24px;
+        max-height: 800px;
+        padding: 20px 20px 30px;
     }
 
     /* Supporto */
@@ -326,38 +326,38 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 16px;
-        font-size: 20px;
+        gap: 20px;
+        font-size: 21px;
         text-align: center;
     }
 
-    .support-info p { font-size: 22px; }
+    .support-info p { font-size: 24px; }
 
     .support-item {
-        background: rgba(20,20,30,0.8);
-        padding: 16px;
-        border-radius: 10px;
+        background: rgba(20,20,30,0.75);
+        padding: 18px;
+        border-radius: 12px;
         width: 80%;
-        max-width: 560px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        max-width: 580px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.4);
     }
 
     footer {
         background: rgba(0,0,0,0.7);
-        padding: 30px 20px;
+        padding: 35px 20px;
         text-align: center;
-        color: #aaa;
+        color: #bbb;
         font-size: 16px;
-        margin-top: 40px;
+        margin-top: 60px;
     }
 
     @media (max-width: 900px) {
-        header { padding: 0 20px; height: 50px; }
-        .company-name { font-size: 26px; }
-        .logo img { height: 28px; }
+        header { padding: 0 20px; }
+        .company-name { font-size: 20px; }
+        .logo img { height: 26px; }
         .right-header { gap: 20px; flex-direction: column; }
         nav ul { gap: 18px; flex-wrap: wrap; justify-content: center; }
-        .section { padding-top: 90px; }
+        .section { padding-top: 80px; }
     }
 </style>
 </head>
