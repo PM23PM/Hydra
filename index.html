@@ -17,6 +17,7 @@
         color: #f1f1f1;
         background: url('https://i.imgur.com/NdfNIiy.png') center/cover fixed;
         min-height: 100vh;
+        line-height: 1.6;
     }
 
     header {
@@ -25,22 +26,14 @@
         left: 0;
         right: 0;
         z-index: 1000;
-        background: #000;
+        background: rgba(0,0,0,0.85);
+        backdrop-filter: blur(8px);
+        height: 40px;
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        padding: 15px 40px;
-        height: 80px; /* header più compatto */
-    }
-
-    header::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: #fff;
+        justify-content: space-between;
+        padding: 0 30px;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
     }
 
     .header-content {
@@ -49,162 +42,163 @@
     }
 
     .logo img {
-        width: 90px; /* logo più piccolo */
+        height: 32px;
+        width: auto;
     }
 
     .company-name {
-        font-size: 36px; /* nome più piccolo */
+        font-size: 24px;
         font-weight: bold;
         color: #fff;
         text-transform: uppercase;
-        letter-spacing: 4px;
-        margin-left: 15px;
+        letter-spacing: 3px;
+        margin-left: 12px;
     }
 
     .right-header {
         display: flex;
         align-items: center;
-        gap: 40px;
+        gap: 30px;
     }
 
     nav ul {
         display: flex;
         list-style: none;
-        gap: 35px;
+        gap: 28px;
         margin: 0;
     }
 
     nav ul li a {
-        color: #fff;
+        color: #ddd;
         text-decoration: none;
-        font-size: 16px; /* font menu più piccolo */
-        font-weight: bold;
+        font-size: 14px;
+        font-weight: 600;
         text-transform: uppercase;
-        transition: color 0.3s, transform 0.2s;
+        transition: color 0.25s;
         cursor: pointer;
     }
 
     nav ul li a:hover,
     nav ul li a.active {
         color: #ff6f61;
-        transform: scale(1.05);
     }
 
     nav ul li a.active {
-        border-bottom: 3px solid #ff6f61;
-        padding-bottom: 4px;
+        border-bottom: 2px solid #ff6f61;
+        padding-bottom: 3px;
     }
 
     .auth-buttons {
         display: flex;
-        gap: 12px;
+        gap: 10px;
     }
 
     .auth-btn {
-        padding: 8px 18px;
-        font-size: 15px;
-        font-weight: bold;
-        border-radius: 6px;
+        padding: 5px 14px;
+        font-size: 13px;
+        font-weight: 600;
+        border-radius: 5px;
         text-decoration: none;
-        transition: all 0.3s ease;
+        transition: all 0.25s;
         cursor: pointer;
     }
 
     .btn-login {
         background: transparent;
-        color: #fff;
-        border: 2px solid #fff;
+        color: #ddd;
+        border: 1px solid #aaa;
     }
     .btn-login:hover {
         background: #fff;
         color: #000;
+        border-color: #fff;
     }
 
     .btn-signup {
         background: #ff6f61;
-        color: #fff;
+        color: white;
         border: none;
     }
     .btn-signup:hover {
         background: #e65b50;
     }
 
-    /* Modal (invariati) */
+    /* Modal invariati (ridimensionati leggermente per coerenza) */
     .modal {
         display: none;
         position: fixed;
         inset: 0;
         z-index: 2000;
-        background: rgba(0,0,0,0.85);
+        background: rgba(0,0,0,0.88);
         align-items: center;
         justify-content: center;
     }
 
     .modal-content {
-        background: rgba(20,20,30,0.98);
-        padding: 35px;
-        border-radius: 12px;
+        background: rgba(15,15,25,0.98);
+        padding: 30px;
+        border-radius: 10px;
         width: 90%;
-        max-width: 440px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+        max-width: 420px;
+        box-shadow: 0 8px 35px rgba(0,0,0,0.7);
         position: relative;
     }
 
     .close {
         position: absolute;
-        top: 12px;
-        right: 18px;
-        font-size: 32px;
-        color: #aaa;
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
+        color: #888;
         cursor: pointer;
     }
     .close:hover { color: #ff6f61; }
 
-    .modal h2 { text-align: center; margin-bottom: 25px; }
+    .modal h2 { text-align: center; margin-bottom: 25px; font-size: 26px; }
 
-    .form-group { margin-bottom: 18px; }
+    .form-group { margin-bottom: 16px; }
 
-    .form-group label { display: block; margin-bottom: 6px; font-weight: bold; }
+    .form-group label { display: block; margin-bottom: 6px; font-weight: bold; font-size: 14px; }
 
     .form-group input {
         width: 100%;
-        padding: 11px;
+        padding: 10px;
         background: #111;
         border: 1px solid #444;
-        border-radius: 6px;
+        border-radius: 5px;
         color: #fff;
         font-size: 15px;
     }
 
     .form-group input:focus {
-        outline: none;
         border-color: #ff6f61;
-        box-shadow: 0 0 0 3px rgba(255,111,97,0.25);
+        box-shadow: 0 0 0 3px rgba(255,111,97,0.2);
     }
 
     .submit-btn {
         width: 100%;
-        padding: 13px;
+        padding: 12px;
         background: #ff6f61;
         color: white;
         border: none;
-        border-radius: 6px;
-        font-size: 17px;
+        border-radius: 5px;
+        font-size: 16px;
         font-weight: bold;
         cursor: pointer;
     }
     .submit-btn:hover { background: #e65b50; }
 
-    /* SEZIONI – ottimizzate per single page */
+    /* ======================= SEZIONI – sfondo leggero e arioso ======================= */
     .section {
+        background: rgba(10,10,20,0.45); /* molto più trasparente, quasi invisibile */
+        backdrop-filter: blur(4px); /* leggero effetto vetro */
         min-height: auto;
-        background: rgba(0,0,0,0.7);
         display: none;
         align-items: flex-start;
         justify-content: center;
-        padding: 140px 20px 80px; /* padding-top ridotto per header più piccolo */
+        padding: 110px 20px 80px; /* ridotto top per header 40px */
         opacity: 0;
-        transition: opacity 0.6s ease;
+        transition: opacity 0.7s ease;
     }
 
     .section.active {
@@ -213,40 +207,44 @@
     }
 
     .section-content {
-        background: rgba(0,0,0,0.9);
-        padding: 50px;
-        border-radius: 15px;
-        box-shadow: 0 4px 30px rgba(0,0,0,0.6);
+        background: rgba(15,15,25,0.75); /* sfondo interno più morbido */
+        padding: 45px 35px;
+        border-radius: 12px;
+        box-shadow: 0 6px 35px rgba(0,0,0,0.45);
         max-width: 1200px;
         width: 94%;
+        backdrop-filter: blur(6px);
     }
 
     .section-title {
-        font-size: 46px;
+        font-size: 42px;
         font-weight: bold;
         text-align: center;
-        margin-bottom: 35px;
+        margin-bottom: 30px;
+        color: #fff;
     }
 
     .section-text {
-        font-size: 24px;
-        line-height: 1.6;
-        max-width: 85ch;
+        font-size: 22px;
+        line-height: 1.65;
+        max-width: 90ch;
         margin: 0 auto;
+        color: #e0e0e0;
     }
 
-    /* Giochi */
+    /* Giochi – adattato */
     .game-catalog {
         display: flex;
-        gap: 40px;
+        gap: 35px;
         align-items: center;
         flex-wrap: wrap;
     }
 
     .game-catalog img {
-        width: 40%;
+        width: 38%;
         min-width: 320px;
         border-radius: 10px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.4);
     }
 
     .game-description {
@@ -255,22 +253,22 @@
     }
 
     .game-catalog h3 {
-        font-size: 30px;
-        margin-bottom: 18px;
+        font-size: 28px;
+        margin-bottom: 16px;
     }
 
     .cta-buttons {
-        margin-top: 25px;
+        margin-top: 22px;
         display: flex;
-        gap: 18px;
+        gap: 16px;
         flex-wrap: wrap;
     }
 
     .btn {
-        padding: 13px 26px;
-        font-size: 17px;
+        padding: 12px 24px;
+        font-size: 16px;
         font-weight: bold;
-        border-radius: 8px;
+        border-radius: 6px;
         text-decoration: none;
         transition: all 0.3s;
     }
@@ -283,15 +281,15 @@
 
     /* FAQ */
     .faq-item {
-        margin-bottom: 18px;
+        margin-bottom: 16px;
         border-bottom: 1px solid #333;
     }
 
     .faq-question {
         cursor: pointer;
-        font-size: 21px;
+        font-size: 20px;
         font-weight: bold;
-        padding: 16px 0;
+        padding: 15px 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -302,7 +300,7 @@
 
     .faq-question::after {
         content: '+';
-        font-size: 28px;
+        font-size: 26px;
         color: #ff6f61;
         transition: transform 0.3s;
     }
@@ -313,14 +311,14 @@
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.5s ease, padding 0.4s ease;
-        font-size: 19px;
-        color: #ddd;
+        font-size: 18px;
+        color: #ccc;
         padding: 0 20px;
     }
 
     .faq-item.active .faq-answer {
-        max-height: 800px;
-        padding: 18px 20px 25px;
+        max-height: 700px;
+        padding: 16px 20px 24px;
     }
 
     /* Supporto */
@@ -328,40 +326,38 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 18px;
-        font-size: 21px;
+        gap: 16px;
+        font-size: 20px;
         text-align: center;
     }
 
-    .support-info p { font-size: 24px; }
+    .support-info p { font-size: 22px; }
 
     .support-item {
-        background: rgba(0,0,0,0.9);
-        padding: 18px;
-        border-radius: 12px;
+        background: rgba(20,20,30,0.8);
+        padding: 16px;
+        border-radius: 10px;
         width: 80%;
-        max-width: 580px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        max-width: 560px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     }
 
     footer {
-        background: #111;
-        padding: 40px 20px;
+        background: rgba(0,0,0,0.7);
+        padding: 30px 20px;
         text-align: center;
         color: #aaa;
-        font-size: 17px;
+        font-size: 16px;
+        margin-top: 40px;
     }
 
     @media (max-width: 900px) {
-        header {
-            padding: 12px 20px;
-            flex-wrap: wrap;
-        }
-        .company-name { font-size: 28px; }
-        .logo img { width: 70px; }
-        .right-header { gap: 25px; flex-direction: column; margin-top: 10px; }
-        nav ul { gap: 20px; flex-wrap: wrap; justify-content: center; }
-        .section { padding-top: 120px; }
+        header { padding: 0 20px; height: 50px; }
+        .company-name { font-size: 26px; }
+        .logo img { height: 28px; }
+        .right-header { gap: 20px; flex-direction: column; }
+        nav ul { gap: 18px; flex-wrap: wrap; justify-content: center; }
+        .section { padding-top: 90px; }
     }
 </style>
 </head>
@@ -532,7 +528,7 @@
 
 <footer>
     <div class="footer-content">
-        <p>© 2025 Hydra. Tutti i diritti riservati.</p>
+        <p>© 2026 Hydra. Tutti i diritti riservati.</p>
     </div>
 </footer>
 
@@ -573,7 +569,7 @@ document.getElementById("signupForm").onsubmit = e => {
     signupModal.style.display = "none";
 };
 
-// Single-page + active link
+// Single-page
 document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelectorAll(".nav-link");
     const sections = document.querySelectorAll(".section");
