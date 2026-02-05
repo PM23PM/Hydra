@@ -21,7 +21,7 @@
         background-attachment: fixed;
     }
 
-    /* Header (invariato) */
+    /* Header */
     header {
         display: flex;
         justify-content: space-between;
@@ -102,7 +102,7 @@
     .btn-signup { background-color: #ff6f61; color: #fff; border: none; }
     .btn-signup:hover { background-color: #e65b50; transform: translateY(-2px); }
 
-    /* Modal (invariati) */
+    /* Modal */
     .modal {
         display: none;
         position: fixed;
@@ -139,11 +139,7 @@
 
     .form-group { margin-bottom: 20px; }
 
-    .form-group label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: bold;
-    }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
 
     .form-group input {
         width: 100%;
@@ -176,7 +172,7 @@
 
     .submit-btn:hover { background-color: #e65b50; }
 
-    /* Sezioni generali */
+    /* Sezioni */
     .section {
         background-color: rgba(0,0,0,0.7);
         display: flex;
@@ -208,7 +204,7 @@
         line-height: 1.6;
     }
 
-    /* FAQ specifica */
+    /* FAQ */
     #faq .faq-item {
         margin-bottom: 20px;
         border-bottom: 1px solid #333;
@@ -225,9 +221,7 @@
         transition: color 0.3s;
     }
 
-    .faq-question:hover {
-        color: #ff6f61;
-    }
+    .faq-question:hover { color: #ff6f61; }
 
     .faq-question::after {
         content: '+';
@@ -237,9 +231,7 @@
         transition: transform 0.3s;
     }
 
-    .faq-item.active .faq-question::after {
-        transform: rotate(45deg);
-    }
+    .faq-item.active .faq-question::after { transform: rotate(45deg); }
 
     .faq-answer {
         max-height: 0;
@@ -251,11 +243,11 @@
     }
 
     .faq-item.active .faq-answer {
-        max-height: 500px; /* adatta in base al contenuto */
+        max-height: 500px;
         padding: 20px 0 20px 20px;
     }
 
-    /* Giochi, Supporto, Footer invariati */
+    /* Altri stili invariati */
     .game-catalog {
         display: flex;
         justify-content: space-between;
@@ -350,6 +342,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#giochi">Giochi</a></li>
                 <li><a href="#supporto">Supporto</a></li>
+                <li><a href="#faq">FAQ</a></li>
             </ul>
         </nav>
 
@@ -454,7 +447,7 @@
     </div>
 </section>
 
-<!-- FAQ (nuova sezione) -->
+<!-- FAQ -->
 <section id="faq" class="section">
     <div class="section-content">
         <h2 class="section-title">Domande Frequenti (FAQ)</h2>
@@ -500,7 +493,6 @@
                 <p>Sì! Siamo sempre alla ricerca di talenti (programmatori, artisti, storici, traduttori). Invia la tua candidatura a carriere@hydra.com con portfolio e CV.</p>
             </div>
         </div>
-
     </div>
 </section>
 
@@ -510,7 +502,7 @@
     </div>
 </footer>
 
-<!-- JavaScript per modal e FAQ accordion -->
+<!-- JavaScript -->
 <script>
 // Modal Login
 const loginModal = document.getElementById("loginModal");
@@ -534,7 +526,7 @@ window.onclick = (event) => {
     if (event.target == signupModal) signupModal.style.display = "none";
 };
 
-// Form Login demo
+// Form demo
 document.getElementById("loginForm").onsubmit = (e) => {
     e.preventDefault();
     const email = document.getElementById("loginEmail").value;
@@ -545,7 +537,6 @@ document.getElementById("loginForm").onsubmit = (e) => {
     }
 };
 
-// Form Sign Up demo + validazione
 document.getElementById("signupForm").onsubmit = (e) => {
     e.preventDefault();
     const nome = document.getElementById("nome").value;
