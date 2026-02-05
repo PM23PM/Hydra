@@ -15,7 +15,7 @@
     body {
         font-family: Arial, sans-serif;
         color: #f0f0f0;
-        background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://i.imgur.com/NdfNIiy.png') center/cover fixed no-repeat;
+        background: url('https://i.imgur.com/NdfNIiy.png') center/cover fixed no-repeat;
         min-height: 100vh;
         line-height: 1.7;
     }
@@ -27,7 +27,7 @@
         right: 0;
         height: 40px;
         z-index: 1000;
-        background: #000; /* nero puro, solido, senza effetti */
+        background: #000;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -196,16 +196,16 @@
     }
     .submit-btn:hover { background: #e65b50; }
 
-    /* Sezioni – sfondo più scuro e pulito */
+    /* Sezioni – sfondo diretto senza blocchi neri */
     .section {
         min-height: 100vh;
-        background: rgba(0,0,0,0.65); /* overlay più scuro per contrasto maggiore */
         display: none;
         align-items: center;
         justify-content: center;
         padding: 100px 20px 60px;
         opacity: 0;
         transition: opacity 0.8s ease;
+        text-align: center;
     }
 
     .section.active {
@@ -216,34 +216,33 @@
     .section-content {
         max-width: 1100px;
         width: 92%;
-        padding: 40px;
-        background: rgba(10,10,20,0.85);
-        border-radius: 16px;
-        box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+        padding: 40px 20px;
     }
 
     .section-title {
-        font-size: 44px;
-        font-weight: 700;
-        text-align: center;
-        margin-bottom: 35px;
+        font-size: 48px;
+        font-weight: 900;
+        margin-bottom: 40px;
         color: #ffffff;
+        text-shadow: 0 3px 12px rgba(0,0,0,0.8);
     }
 
     .section-text {
-        font-size: 22px;
-        line-height: 1.75;
+        font-size: 24px;
+        line-height: 1.8;
         max-width: 90ch;
         margin: 0 auto;
-        color: #e0e0e0;
+        color: #f8f8f8;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.7);
     }
 
     /* Giochi */
     .game-catalog {
         display: flex;
-        gap: 40px;
+        gap: 50px;
         align-items: center;
         flex-wrap: wrap;
+        justify-content: center;
     }
 
     .game-catalog img {
@@ -256,24 +255,27 @@
     .game-description {
         flex: 1;
         min-width: 340px;
+        text-align: left;
     }
 
     .game-catalog h3 {
-        font-size: 30px;
-        margin-bottom: 18px;
+        font-size: 32px;
+        margin-bottom: 20px;
         color: #fff;
+        text-shadow: 0 2px 8px #000;
     }
 
     .cta-buttons {
-        margin-top: 28px;
+        margin-top: 30px;
         display: flex;
-        gap: 18px;
+        gap: 20px;
         flex-wrap: wrap;
+        justify-content: flex-start;
     }
 
     .btn {
-        padding: 12px 26px;
-        font-size: 16px;
+        padding: 14px 28px;
+        font-size: 17px;
         font-weight: bold;
         border-radius: 6px;
         text-decoration: none;
@@ -287,9 +289,8 @@
     .btn-outline:hover { background: #ff6f61; color: white; }
 
     .btn-preorder {
-        padding: 14px 32px;
-        font-size: 17px;
-        font-weight: bold;
+        padding: 15px 35px;
+        font-size: 18px;
         background: linear-gradient(135deg, #ff6f61, #ff8a80);
         color: white;
         border: none;
@@ -309,16 +310,15 @@
         flex-direction: column;
         align-items: center;
         gap: 25px;
-        font-size: 21px;
+        font-size: 22px;
         text-align: center;
     }
 
-    .support-info p { font-size: 24px; }
+    .support-info p { font-size: 25px; }
 
     .report-btn {
-        padding: 14px 30px;
-        font-size: 17px;
-        font-weight: bold;
+        padding: 15px 35px;
+        font-size: 18px;
         background: #ff6f61;
         color: white;
         border: none;
@@ -334,15 +334,15 @@
 
     /* FAQ */
     .faq-item {
-        margin-bottom: 20px;
-        border-bottom: 1px solid #333;
+        margin-bottom: 25px;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
     }
 
     .faq-question {
         cursor: pointer;
-        font-size: 21px;
+        font-size: 22px;
         font-weight: 600;
-        padding: 18px 0;
+        padding: 20px 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -353,7 +353,7 @@
 
     .faq-question::after {
         content: '+';
-        font-size: 28px;
+        font-size: 30px;
         color: #ff6f61;
         transition: transform 0.3s;
     }
@@ -364,23 +364,23 @@
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.5s ease, padding 0.4s ease;
-        font-size: 19px;
-        color: #ccc;
+        font-size: 20px;
+        color: #d8d8d8;
         padding: 0 20px;
     }
 
     .faq-item.active .faq-answer {
-        max-height: 800px;
-        padding: 20px 20px 30px;
+        max-height: 900px;
+        padding: 20px 20px 35px;
     }
 
     footer {
         background: #000;
-        padding: 35px 20px;
+        padding: 40px 20px;
         text-align: center;
         color: #aaa;
         font-size: 16px;
-        margin-top: 60px;
+        margin-top: 80px;
     }
 
     @media (max-width: 900px) {
@@ -565,7 +565,7 @@
     </div>
 </div>
 
-<!-- Sezioni -->
+<!-- Sezioni – testo diretto sullo sfondo -->
 <section id="home" class="section active">
     <div class="section-content">
         <h2 class="section-title">Chi Siamo</h2>
@@ -577,6 +577,7 @@
 
 <section id="giochi" class="section">
     <div class="section-content">
+        <h2 class="section-title">Giochi</h2>
         <div class="game-catalog">
             <img src="https://i.imgur.com/SsF3h7C.jpeg" alt="Decode Game">
             <div class="game-description">
