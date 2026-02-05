@@ -15,7 +15,7 @@
     body {
         font-family: Arial, sans-serif;
         color: #f0f0f0;
-        background: url('https://i.imgur.com/NdfNIiy.png') center/cover fixed no-repeat;
+        background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://i.imgur.com/NdfNIiy.png') center/cover fixed no-repeat;
         min-height: 100vh;
         line-height: 1.7;
     }
@@ -27,13 +27,12 @@
         right: 0;
         height: 40px;
         z-index: 1000;
-        background: rgba(0,0,0,0.75);
-        backdrop-filter: blur(10px);
+        background: #000; /* nero puro, solido, senza effetti */
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 0 30px;
-        border-bottom: 1px solid rgba(255,255,255,0.12);
+        border-bottom: 1px solid #222;
     }
 
     .header-content {
@@ -69,7 +68,7 @@
     }
 
     nav ul li a {
-        color: #ddd;
+        color: #ccc;
         text-decoration: none;
         font-size: 13.5px;
         font-weight: 600;
@@ -103,13 +102,13 @@
 
     .btn-login {
         background: transparent;
-        color: #ddd;
-        border: 1px solid #aaa;
+        color: #ccc;
+        border: 1px solid #888;
     }
     .btn-login:hover {
-        background: #fff;
-        color: #000;
-        border-color: #fff;
+        background: #222;
+        color: #fff;
+        border-color: #ff6f61;
     }
 
     .btn-signup {
@@ -121,24 +120,24 @@
         background: #e65b50;
     }
 
-    /* Modal generale */
+    /* Modal */
     .modal {
         display: none;
         position: fixed;
         inset: 0;
         z-index: 2000;
-        background: rgba(0,0,0,0.88);
+        background: rgba(0,0,0,0.9);
         align-items: center;
         justify-content: center;
     }
 
     .modal-content {
-        background: rgba(15,15,25,0.97);
+        background: #111;
         padding: 30px;
         border-radius: 10px;
         width: 90%;
         max-width: 480px;
-        box-shadow: 0 8px 35px rgba(0,0,0,0.7);
+        box-shadow: 0 8px 35px rgba(0,0,0,0.8);
         position: relative;
     }
 
@@ -163,7 +162,7 @@
     .form-group textarea {
         width: 100%;
         padding: 10px;
-        background: #111;
+        background: #000;
         border: 1px solid #444;
         border-radius: 5px;
         color: #fff;
@@ -197,11 +196,10 @@
     }
     .submit-btn:hover { background: #e65b50; }
 
-    /* Sezioni */
+    /* Sezioni – sfondo più scuro e pulito */
     .section {
         min-height: 100vh;
-        background: rgba(10,10,20,0.25);
-        backdrop-filter: blur(3px);
+        background: rgba(0,0,0,0.65); /* overlay più scuro per contrasto maggiore */
         display: none;
         align-items: center;
         justify-content: center;
@@ -219,10 +217,9 @@
         max-width: 1100px;
         width: 92%;
         padding: 40px;
-        background: rgba(15,15,25,0.65);
+        background: rgba(10,10,20,0.85);
         border-radius: 16px;
-        backdrop-filter: blur(8px);
-        box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+        box-shadow: 0 8px 40px rgba(0,0,0,0.5);
     }
 
     .section-title {
@@ -231,7 +228,6 @@
         text-align: center;
         margin-bottom: 35px;
         color: #ffffff;
-        text-shadow: 0 2px 10px rgba(0,0,0,0.6);
     }
 
     .section-text {
@@ -239,7 +235,7 @@
         line-height: 1.75;
         max-width: 90ch;
         margin: 0 auto;
-        color: #e8e8e8;
+        color: #e0e0e0;
     }
 
     /* Giochi */
@@ -254,7 +250,7 @@
         width: 40%;
         min-width: 340px;
         border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
     }
 
     .game-description {
@@ -282,7 +278,6 @@
         border-radius: 6px;
         text-decoration: none;
         transition: all 0.3s;
-        cursor: pointer;
     }
 
     .btn-primary { background: #ff6f61; color: white; }
@@ -306,7 +301,6 @@
     .btn-preorder:hover {
         transform: translateY(-3px);
         box-shadow: 0 8px 25px rgba(255,111,97,0.6);
-        background: linear-gradient(135deg, #ff8a80, #ff6f61);
     }
 
     /* Supporto */
@@ -338,10 +332,10 @@
         transform: translateY(-2px);
     }
 
-    /* FAQ invariata */
+    /* FAQ */
     .faq-item {
         margin-bottom: 20px;
-        border-bottom: 1px solid rgba(255,255,255,0.12);
+        border-bottom: 1px solid #333;
     }
 
     .faq-question {
@@ -371,7 +365,7 @@
         overflow: hidden;
         transition: max-height 0.5s ease, padding 0.4s ease;
         font-size: 19px;
-        color: #d0d0d0;
+        color: #ccc;
         padding: 0 20px;
     }
 
@@ -381,10 +375,10 @@
     }
 
     footer {
-        background: rgba(0,0,0,0.7);
+        background: #000;
         padding: 35px 20px;
         text-align: center;
-        color: #bbb;
+        color: #aaa;
         font-size: 16px;
         margin-top: 60px;
     }
@@ -516,7 +510,7 @@
     </div>
 </div>
 
-<!-- Modal Prenotazione Gioco (nuovo) -->
+<!-- Modal Prenotazione -->
 <div id="preorderModal" class="modal">
     <div class="modal-content">
         <span class="close" id="closePreorder">×</span>
@@ -544,7 +538,6 @@
                 </select>
             </div>
 
-            <!-- Campi carta (visibili solo se selezionata carta) -->
             <div id="cartaFields" style="display:none;">
                 <div class="form-group">
                     <label for="numeroCarta">Numero carta</label>
@@ -572,8 +565,7 @@
     </div>
 </div>
 
-<!-- ======================= SEZIONI ======================= -->
-
+<!-- Sezioni -->
 <section id="home" class="section active">
     <div class="section-content">
         <h2 class="section-title">Chi Siamo</h2>
@@ -698,13 +690,12 @@ const closePreorder = document.getElementById("closePreorder");
 preorderBtn.onclick = () => preorderModal.style.display = "flex";
 closePreorder.onclick = () => preorderModal.style.display = "none";
 
-// Mostra/nascondi campi carta
+// Mostra campi carta
 document.getElementById("preMetodo").addEventListener("change", function() {
-    const cartaFields = document.getElementById("cartaFields");
-    cartaFields.style.display = this.value === "carta" ? "block" : "none";
+    document.getElementById("cartaFields").style.display = this.value === "carta" ? "block" : "none";
 });
 
-// Chiudi modal cliccando fuori
+// Chiudi modal fuori
 window.onclick = e => {
     if (e.target === loginModal) loginModal.style.display = "none";
     if (e.target === signupModal) signupModal.style.display = "none";
@@ -741,7 +732,7 @@ document.getElementById("reportForm").onsubmit = e => {
         return;
     }
 
-    alert("Segnalazione inviata (demo):\nNome: " + nome + " " + cognome + "\nEmail: " + email + "\nTipo: " + tipo + "\nMessaggio: " + messaggio.substring(0,100) + "...");
+    alert("Segnalazione inviata (demo):\nNome: " + nome + " " + cognome + "\nEmail: " + email + "\nTipo: " + tipo);
     reportModal.style.display = "none";
 };
 
@@ -768,7 +759,7 @@ document.getElementById("preorderForm").onsubmit = e => {
         }
     }
 
-    alert("Prenotazione Decode confermata (demo):\nNome: " + nome + " " + cognome + "\nEmail: " + email + "\nMetodo: " + metodo + (note ? "\nNote: " + note : ""));
+    alert("Prenotazione confermata (demo):\nNome: " + nome + " " + cognome + "\nEmail: " + email + "\nMetodo: " + metodo + (note ? "\nNote: " + note : ""));
     preorderModal.style.display = "none";
 };
 
