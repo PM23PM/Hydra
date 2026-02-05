@@ -20,20 +20,35 @@
         line-height: 1.7;
     }
 
-    header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 40px;
-        z-index: 1000;
-        background: #000;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 30px;
-        border-bottom: 1px solid #222;
-    }
+header {
+    position: fixed;
+    top: 18px;          /* distanza dal bordo alto */
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 95%;
+    max-width: 1300px;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 30px;
+
+    background: rgba(0, 0, 0, 0.55); /* trasparente */
+    backdrop-filter: blur(14px);     /* sfocatura */
+    -webkit-backdrop-filter: blur(14px);
+
+    border-radius: 16px;  /* angoli stondati */
+    border: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.6),
+        inset 0 0 0 1px rgba(255,255,255,0.03);
+}
+
 
     .header-content {
         display: flex;
@@ -202,7 +217,7 @@
         display: none;
         align-items: center;
         justify-content: center;
-        padding: 100px 20px 60px;
+        padding: 140px 20px 60px;
         opacity: 0;
         transition: opacity 0.8s ease;
         text-align: center;
@@ -316,6 +331,76 @@
 
     .support-info p { font-size: 25px; }
 
+	.support-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 28px;
+    margin-top: 30px;
+}
+
+.support-card {
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(14px);
+    border-radius: 12px;
+    padding: 22px 18px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.support-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.75);
+}
+
+.support-card h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: #fff;
+}
+
+.support-card p {
+    font-size: 16px;
+    color: #ccc;
+    margin-bottom: 18px;
+}
+
+.support-btn {
+    padding: 10px 22px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 6px;
+    border: none;
+    background: #ff6f61;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.support-btn:hover {
+    background: #e65b50;
+    transform: translateY(-2px);
+}
+
+.support-card .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.support-card .social-icon img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.support-card .social-icon:hover img {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 12px #ff6f61);
+}
+
+
     .report-btn {
         padding: 15px 35px;
         font-size: 18px;
@@ -397,7 +482,7 @@
 
 <header>
     <div class="header-content">
-        <div class="logo"><a href="#"><img src="https://i.imgur.com/8SUgbwa.png" alt="Logo Hydra"></a></div>
+        <div class="logo"><a href="#"><img src="https://i.imgur.com/3eG6kO3.png" alt="Logo Hydra"></a></div>
         <div class="company-name">HYDRA</div>
     </div>
 
@@ -593,16 +678,51 @@
 </section>
 
 <section id="supporto" class="section">
-    <div class="section-content">
-        <h2 class="section-title">Supporto</h2>
-        <div class="support-info">
-            <p>Per qualsiasi dubbio, problema o richiesta, non esitare a contattarci:</p>
-            <div class="support-item"><p>Email: supporto@hydra.com</p></div>
-            <div class="support-item"><p>Telefono: +39 123 456 789</p></div>
-            <button id="openReportBtn" class="report-btn">Invia segnalazione</button>
-        </div>
+  <div class="section-content">
+    <h2 class="section-title">Supporto</h2>
+
+    <div class="support-grid">
+      <div class="support-card">
+        <h3>Recupera Password</h3>
+        <p>Hai dimenticato la password? Reimposta rapidamente e continua a giocare.</p>
+        <button class="support-btn" onclick="alert('Redirect a Recupera Password')">Recupera</button>
+      </div>
+
+      <div class="support-card">
+        <h3>Recupera Email</h3>
+        <p>Non ricordi l’email del tuo account? Scopri come recuperarla.</p>
+        <button class="support-btn" onclick="alert('Redirect a Recupera Email')">Recupera</button>
+      </div>
+
+      <div class="support-card">
+        <h3>Contatta Supporto</h3>
+        <p>Per problemi tecnici, condividili direttamente con il nostro team.</p>
+        <button class="support-btn" id="openReportBtn">Invia Segnalazione</button>
+      </div>
+
+      <div class="support-card">
+    <h3>Social</h3>
+    <p>Consulta i nostri social per avere sempre le ultime informazioni.</p>
+
+ 	   <div class="social-links">
+ 	       <a href="https://www.facebook.com" target="_blank" class="social-icon">
+ 	           <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+ 	       </a>
+ 	       <a href="https://www.twitter.com" target="_blank" class="social-icon">
+ 	           <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter">
+ 	       </a>
+ 	       <a href="https://www.instagram.com" target="_blank" class="social-icon">
+ 	           <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram">
+ 	       </a>
+ 	       <a href="https://www.youtube.com" target="_blank" class="social-icon">
+ 	           <img src="https://cdn-icons-png.flaticon.com/512/733/733646.png" alt="YouTube">
+ 	       </a>
+ 	   </div>
+	</div>
     </div>
+  </div>
 </section>
+
 
 <section id="faq" class="section">
     <div class="section-content">
@@ -655,6 +775,8 @@
 <footer>
     <div class="footer-content">
         <p>© 2026 Hydra. Tutti i diritti riservati.</p>
+        <p>Email: supporto@hydra.com</p>
+        <p>Telefono: +39 123 456 789</p>
     </div>
 </footer>
 
