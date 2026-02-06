@@ -67,7 +67,7 @@
         align-items: center;
         gap: 28px;
     }
-    
+   
     nav ul {
         display: flex;
         list-style: none;
@@ -120,7 +120,7 @@
     .btn-signup:hover {
         background: #e65b50;
     }
-    
+   
     /* Menu Hamburgher per Mobile */
     .hamburger {
     display: none;
@@ -130,7 +130,7 @@
     height: 24px;
     justify-content: space-between;
     z-index: 1001;
-    position: relative;  /* AGGIUNGI QUESTA RIGA */
+    position: relative; /* AGGIUNGI QUESTA RIGA */
 }
     .hamburger span {
         width: 100%;
@@ -148,7 +148,7 @@
     .hamburger.active span:nth-child(3) {
         transform: translateY(-10px) rotate(-45deg);
     }
-    
+   
     /* Menu Mobile a tendina con effetto translucido */
     @keyframes menuFadeIn {
     from {
@@ -158,7 +158,6 @@
         opacity: 1;
     }
 }
-
 @keyframes menuFadeOut {
     from {
         opacity: 1;
@@ -167,7 +166,6 @@
         opacity: 0;
     }
 }
-
 @keyframes contentSlideDown {
     from {
         opacity: 1;
@@ -178,7 +176,6 @@
         transform: translateY(15px);
     }
 }
-
 @keyframes menuOverlayFadeOut {
     0% {
         background: rgba(0, 0, 0, 0.85);
@@ -199,7 +196,7 @@
     background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    z-index: 10000;  /* ASSICURATI CHE SIA 10000 */
+    z-index: 10000; /* ASSICURATI CHE SIA 10000 */
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -209,7 +206,6 @@
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     transition: opacity 0.3s ease-out;
 }
-
 .mobile-menu.active {
     display: flex;
     opacity: 1;
@@ -288,9 +284,9 @@
     }
 .close-mobile-menu {
     position: fixed;
-    top: 8%;  /* CENTRATO VERTICALMENTE */
-    left: 90%;  /* CENTRATO ORIZZONTALMENTE */
-    transform: translate(-50%, -50%);  /* PERFETTO CENTRAMENTO */
+    top: 8%; /* CENTRATO VERTICALMENTE */
+    left: 90%; /* CENTRATO ORIZZONTALMENTE */
+    transform: translate(-50%, -50%); /* PERFETTO CENTRAMENTO */
     width: 60px;
     height: 60px;
     background: rgba(255, 111, 97, 0.95);
@@ -300,7 +296,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 10002;  /* PIÙ ALTO DEL MENU E DELL'HAMBURGER */
+    z-index: 10002; /* PIÙ ALTO DEL MENU E DELL'HAMBURGER */
     box-shadow: 0 0 30px rgba(255, 111, 97, 0.7);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 0;
@@ -308,12 +304,10 @@
     opacity: 0;
     visibility: hidden;
 }
-
 .mobile-menu.active .close-mobile-menu {
     opacity: 1;
     visibility: visible;
 }
-
 .close-mobile-menu::before {
     content: "";
     font-size: 36px;
@@ -323,7 +317,6 @@
     display: block;
     margin-top: -4px;
 }
-
 .mobile-menu {
     overflow: visible !important;
 }
@@ -332,28 +325,28 @@
         background: rgba(255, 255, 255, 0.15);
         border-color: rgba(255, 111, 97, 0.5);
     }
-    
+   
     .modal {
     display: none;
     position: fixed;
     inset: 0;
     z-index: 2000;
-    background: rgba(0, 0, 0, 0.9); 
-    backdrop-filter: blur(8px); 
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     align-items: center;
     justify-content: center;
 }
 .modal-content {
-    background: rgba(0, 0, 0, 0.8); 
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.1); 
+    border: 2px solid rgba(255, 255, 255, 0.1);
     padding: 30px;
-    border-radius: 16px; 
+    border-radius: 16px;
     width: 90%;
     max-width: 480px;
-    box-shadow: 
+    box-shadow:
         0 10px 40px rgba(0, 0, 0, 0.8),
         inset 0 0 0 1px rgba(255, 255, 255, 0.05);
     position: relative;
@@ -416,7 +409,6 @@
     transition: opacity 0.8s ease;
     text-align: center;
 }
-
 /* Blocco translucido per la home - STESSA SFOCATURA DELLA NAVBAR */
 #home .section-content {
     background: rgba(0, 0, 0, 0.65); /* Più scuro per maggior contrasto */
@@ -434,7 +426,6 @@
     position: relative;
     overflow: hidden;
 }
-
 /* Effetto gradiente di bordo */
 #home .section-content::before {
     content: '';
@@ -443,7 +434,7 @@
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, 
+    background: linear-gradient(45deg,
         rgba(255, 111, 97, 0.2),
         rgba(0, 0, 0, 0) 30%,
         rgba(0, 0, 0, 0) 70%,
@@ -452,7 +443,6 @@
     z-index: -1;
     pointer-events: none;
 }
-
 /* Animazione di entrata più fluida */
 @keyframes homeContentAppear {
     0% {
@@ -464,11 +454,9 @@
         transform: translateY(0) scale(1);
     }
 }
-
 #home.active .section-content {
     animation: homeContentAppear 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
-
 /* Titolo con gradiente */
 #home .section-title {
     font-size: 3.5rem;
@@ -483,7 +471,6 @@
     position: relative;
     padding-bottom: 20px;
 }
-
 #home .section-title::after {
     content: '';
     position: absolute;
@@ -495,7 +482,6 @@
     background: linear-gradient(90deg, transparent, #ff6f61, transparent);
     border-radius: 2px;
 }
-
 /* Testo con miglior leggibilità */
 #home .section-text {
     font-size: 1.3rem;
@@ -510,7 +496,6 @@
     border-left: 4px solid #ff6f61;
     position: relative;
 }
-
 /* Effetto particelle di luce */
 #home .section-text::before {
     content: '';
@@ -519,12 +504,11 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, 
-        transparent, 
-        rgba(255, 111, 97, 0.5), 
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 111, 97, 0.5),
         transparent);
 }
-
 /* Responsive */
 @media (max-width: 900px) {
     #home .section-content {
@@ -534,17 +518,16 @@
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
     }
-    
+   
     #home .section-title {
         font-size: 2.8rem;
     }
-    
+   
     #home .section-text {
         font-size: 1.15rem;
         padding: 25px;
     }
 }
-
 @media (max-width: 600px) {
     #home .section-content {
         padding: 40px 25px;
@@ -552,44 +535,41 @@
         width: calc(100% - 30px);
         border-radius: 20px;
     }
-    
+   
     #home .section-title {
         font-size: 2.2rem;
         margin-bottom: 35px;
     }
-    
+   
     #home .section-text {
         font-size: 1rem;
         padding: 20px;
         line-height: 1.7;
     }
 }
-
 /* Effetto hover per il blocco */
 @media (hover: hover) {
     #home .section-content:hover {
         transform: translateY(-5px);
-        box-shadow: 
+        box-shadow:
             0 20px 50px rgba(0,0,0,0.9),
             0 0 80px rgba(255, 111, 97, 0.2);
         transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     }
 }
-
 /* Animazione del background */
 @keyframes subtleGlow {
     0%, 100% {
-        box-shadow: 
+        box-shadow:
             0 15px 40px rgba(0,0,0,0.8),
             0 0 60px rgba(255, 111, 97, 0.15);
     }
     50% {
-        box-shadow: 
+        box-shadow:
             0 15px 40px rgba(0,0,0,0.8),
             0 0 80px rgba(255, 111, 97, 0.2);
     }
 }
-
 #home .section-content {
     animation: subtleGlow 4s ease-in-out infinite;
 }
@@ -838,7 +818,7 @@
         transform: scale(1.15);
         filter: drop-shadow(0 0 8px #ff6f61);
     }
-    
+   
     /* Media Queries per Mobile */
     @media (max-width: 900px) {
         header {
@@ -856,16 +836,16 @@
         .logo img {
             height: 24px;
         }
-        
+       
         /* Nascondi la navbar desktop e mostra hamburger */
         .right-header {
             display: none;
         }
-        
+       
         .hamburger {
             display: flex;
         }
-        
+       
         /* Sezioni */
         .section {
             padding-top: 100px;
@@ -876,7 +856,7 @@
         .section-text {
             font-size: 20px;
         }
-        
+       
         /* Giochi */
         .game-catalog {
             flex-direction: column;
@@ -889,13 +869,13 @@
         .game-description {
             min-width: unset;
         }
-        
+       
         /* Supporto */
         .support-grid {
             grid-template-columns: 1fr;
             gap: 20px;
         }
-        
+       
         /* FAQ */
         .faq-question {
             font-size: 20px;
@@ -903,7 +883,7 @@
         .faq-answer {
             font-size: 18px;
         }
-        
+       
         /* Menu mobile su tablet piccoli */
         @media (max-width: 600px) {
             .mobile-menu-content {
@@ -916,22 +896,22 @@
             }
         }
     }
-    
+   
     /* Desktop specifico: HYDRA a destra */
     @media (min-width: 901px) {
         .mobile-menu {
             display: none !important;
         }
-        
+       
         .header-content {
             display: flex;
             align-items: center;
         }
-        
+       
         .logo-and-brand {
             margin-right: auto;
         }
-        
+       
         .company-name {
             font-size: 22px;
         }
@@ -939,14 +919,13 @@
 </style>
 </head>
 <body>
-
 <header>
     <div class="header-content">
         <div class="logo-and-brand">
             <div class="logo"><a href="#"><img src="https://i.imgur.com/3eG6kO3.png" alt="Logo Hydra"></a></div>
             <div class="company-name">HYDRA</div>
         </div>
-        
+       
         <!-- Navbar Desktop (visibile solo su PC) -->
         <div class="right-header">
             <nav>
@@ -962,7 +941,7 @@
                 <a href="#" id="signupBtn" class="auth-btn btn-signup">Sign Up</a>
             </div>
         </div>
-        
+       
         <!-- Menu Hamburgher per Mobile -->
         <div class="hamburger" id="hamburger">
             <span></span>
@@ -971,7 +950,6 @@
         </div>
     </div>
 </header>
-
 <!-- Menu Mobile a tendina -->
 <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-content">
@@ -981,7 +959,7 @@
             <a href="#supporto" data-section="supporto" class="nav-link">Supporto</a>
             <a href="#faq" data-section="faq" class="nav-link">FAQ</a>
         </nav>
-        
+       
         <div class="mobile-auth-buttons">
             <a href="#" id="loginBtnMobile" class="auth-btn btn-login">Login</a>
             <a href="#" id="signupBtnMobile" class="auth-btn btn-signup">Sign Up</a>
@@ -989,7 +967,6 @@
     </div>
     <button class="close-mobile-menu" id="closeMobileMenu">×</button>
 </div>
-
 <!-- Modal Login -->
 <div id="loginModal" class="modal">
     <div class="modal-content">
@@ -1008,7 +985,6 @@
         </form>
     </div>
 </div>
-
 <!-- Modal Sign Up -->
 <div id="signupModal" class="modal">
     <div class="modal-content">
@@ -1043,7 +1019,6 @@
         </form>
     </div>
 </div>
-
 <!-- Modal Segnalazione -->
 <div id="reportModal" class="modal">
     <div class="modal-content">
@@ -1081,7 +1056,6 @@
         </form>
     </div>
 </div>
-
 <!-- Modal Prenotazione -->
 <div id="preorderModal" class="modal">
     <div class="modal-content">
@@ -1109,7 +1083,6 @@
                     <option value="bonifico">Bonifico bancario</option>
                 </select>
             </div>
-
             <div id="cartaFields" style="display:none;">
                 <div class="form-group">
                     <label for="numeroCarta">Numero carta</label>
@@ -1126,17 +1099,14 @@
                     </div>
                 </div>
             </div>
-
             <div class="form-group">
                 <label for="preNote">Note (opzionale)</label>
                 <textarea id="preNote" placeholder="Eventuali richieste speciali o informazioni aggiuntive..."></textarea>
             </div>
-
             <button type="submit" class="submit-btn">Conferma Prenotazione</button>
         </form>
     </div>
 </div>
-
 <!-- MODAL RECUPERO PASSWORD -->
 <div id="recoverPasswordModal" class="modal">
     <div class="modal-content">
@@ -1151,7 +1121,6 @@
         </form>
     </div>
 </div>
-
 <!-- MODAL RECUPERO EMAIL -->
 <div id="recoverEmailModal" class="modal">
     <div class="modal-content">
@@ -1174,7 +1143,6 @@
         </form>
     </div>
 </div>
-
 <!-- MODAL CONTROLLO PARENTALE -->
 <div id="parentalModal" class="modal">
     <div class="modal-content">
@@ -1193,7 +1161,6 @@
         </form>
     </div>
 </div>
-
 <!-- MODAL 2FA -->
 <div id="2faModal" class="modal">
     <div class="modal-content">
@@ -1212,6 +1179,22 @@
     </div>
 </div>
 
+<!-- === NUOVO MODAL TRAILER === -->
+<div id="trailerModal" class="modal">
+    <div class="modal-content" style="max-width:960px; width:92%; padding:0; overflow:hidden; background:transparent; border:none; box-shadow:none;">
+        <span class="close" id="closeTrailer" style="position:absolute; top:15px; right:20px; z-index:10; font-size:42px; color:#fff; text-shadow:0 0 8px #000;">×</span>
+        <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; background:#000;">
+            <iframe 
+                src="https://streamable.com/e/613eu7?autoplay=1" 
+                frameborder="0" 
+                allowfullscreen 
+                style="position:absolute; top:0; left:0; width:100%; height:100%;"
+                allow="autoplay; fullscreen; picture-in-picture">
+            </iframe>
+        </div>
+    </div>
+</div>
+
 <!-- Sezioni -->
 <section id="home" class="section active">
     <div class="section-content">
@@ -1221,7 +1204,6 @@
         </p>
     </div>
 </section>
-
 <section id="giochi" class="section">
     <div class="section-content">
         <h2 class="section-title">Giochi</h2>
@@ -1231,14 +1213,13 @@
                 <h3>Decode</h3>
                 <p>Decode è un FPS rompicapo ambientato in eventi storici che hanno segnato il corso della storia. Dovrai decifrare vari cifrari, come "binario" e "cifrario cesare", con l'obiettivo di sabotare il nemico.</p>
                 <div class="cta-buttons">
-                    <a href="#" class="btn btn-primary">Guarda il trailer</a>
+                    <button id="trailerBtn" class="btn btn-primary">Guarda il trailer</button>
                     <button id="preorderBtn" class="btn-preorder">Prenota ora</button>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 <section id="supporto" class="section">
     <div class="section-content">
         <h2 class="section-title">Supporto</h2>
@@ -1277,7 +1258,6 @@
         </div>
     </div>
 </section>
-
 <section id="faq" class="section">
     <div class="section-content">
         <h2 class="section-title">Domande Frequenti (FAQ)</h2>
@@ -1319,32 +1299,24 @@
         </div>
     </div>
 </section>
-
 <!-- Termini e Condizioni -->
 <section id="termini" class="section">
     <div class="section-content">
         <h2 class="section-title">Termini e Condizioni</h2>
         <p>L'utilizzo del sito e dei servizi Hydra implica l'accettazione dei seguenti termini.</p>
-
         <h3>1. Proprietà intellettuale</h3>
         <p>Tutti i contenuti (giochi, testi, immagini, logo) sono di proprietà di Hydra o concessi in licenza. È vietata la riproduzione, distribuzione o modifica senza autorizzazione scritta.</p>
-
         <h3>2. Registrazione e account</h3>
         <p>I dati forniti durante la registrazione devono essere veritieri. L'utente è responsabile della sicurezza delle proprie credenziali. Hydra si riserva il diritto di sospendere o chiudere account per violazioni.</p>
-
         <h3>3. Acquisti e prenotazioni</h3>
         <p>I prezzi sono espressi in euro IVA inclusa (ove applicabile). I pagamenti sono gestiti tramite piattaforme terze. Il diritto di recesso è escluso per contenuti digitali scaricati o attivati (art. 59 Codice del Consumo).</p>
-
         <h3>4. Limitazione di responsabilità</h3>
         <p>Hydra non è responsabile per danni indiretti, perdita di dati o interruzioni del servizio, salvo dolo o colpa grave.</p>
-
         <h3>5. Legge applicabile e foro competente</h3>
         <p>I presenti termini sono regolati dalla legge italiana. Per qualsiasi controversia è competente il Foro di [inserire città sede legale].</p>
-
         <p>Ultimo aggiornamento: 05 febbraio 2026</p>
     </div>
 </section>
-
 <footer>
     <div class="footer-content">
         <p>© 2026 Hydra – Partita IVA: 23503618214</p>
@@ -1367,28 +1339,24 @@
         </div>
     </div>
 </footer>
-
 <script>
 // Gestione Menu Mobile
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 const closeMobileMenu = document.getElementById('closeMobileMenu');
 const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
-
 // Apertura menu mobile
 hamburger.addEventListener('click', () => {
     mobileMenu.classList.add('active');
     hamburger.classList.add('active');
     document.body.style.overflow = 'hidden'; // Blocca scroll
 });
-
 // Chiusura menu mobile
 closeMobileMenu.addEventListener('click', () => {
     mobileMenu.classList.remove('active');
     hamburger.classList.remove('active');
     document.body.style.overflow = '';
 });
-
 // Chiusura menu quando si clicca su un link
 mobileNavLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -1397,7 +1365,6 @@ mobileNavLinks.forEach(link => {
         document.body.style.overflow = '';
     });
 });
-
 // Chiusura menu quando si clicca all'esterno
 mobileMenu.addEventListener('click', (e) => {
     if (e.target === mobileMenu) {
@@ -1406,13 +1373,11 @@ mobileMenu.addEventListener('click', (e) => {
         document.body.style.overflow = '';
     }
 });
-
 // Modal Login
 const loginModal = document.getElementById("loginModal");
 const loginBtn = document.getElementById("loginBtn");
 const loginBtnMobile = document.getElementById("loginBtnMobile");
 const closeLogin = document.getElementById("closeLogin");
-
 function openLoginModal() {
     loginModal.style.display = "flex";
     // Chiudi menu mobile se aperto
@@ -1420,18 +1385,15 @@ function openLoginModal() {
     hamburger.classList.remove('active');
     document.body.style.overflow = '';
 }
-
 loginBtn.onclick = e => { e.preventDefault(); openLoginModal(); };
 if (loginBtnMobile) {
     loginBtnMobile.onclick = e => { e.preventDefault(); openLoginModal(); };
 }
-
 // Modal Sign Up
 const signupModal = document.getElementById("signupModal");
 const signupBtn = document.getElementById("signupBtn");
 const signupBtnMobile = document.getElementById("signupBtnMobile");
 const closeSignup = document.getElementById("closeSignup");
-
 function openSignupModal() {
     signupModal.style.display = "flex";
     // Chiudi menu mobile se aperto
@@ -1439,12 +1401,10 @@ function openSignupModal() {
     hamburger.classList.remove('active');
     document.body.style.overflow = '';
 }
-
 signupBtn.onclick = e => { e.preventDefault(); openSignupModal(); };
 if (signupBtnMobile) {
     signupBtnMobile.onclick = e => { e.preventDefault(); openSignupModal(); };
 }
-
 // Modal Prenotazione
 const preorderModal = document.getElementById("preorderModal");
 const preorderBtn = document.getElementById("preorderBtn");
@@ -1456,12 +1416,10 @@ preorderBtn.onclick = () => {
     hamburger.classList.remove('active');
     document.body.style.overflow = '';
 };
-
 // Mostra campi carta
 document.getElementById("preMetodo").addEventListener("change", function() {
     document.getElementById("cartaFields").style.display = this.value === "carta" ? "block" : "none";
 });
-
 // Chiudi modal fuori e con X
 window.onclick = e => {
     if (e.target.classList.contains('modal')) {
@@ -1469,7 +1427,6 @@ window.onclick = e => {
         document.body.style.overflow = '';
     }
 };
-
 // Gestione chiusura per tutti i bottoni .close
 document.querySelectorAll('.close').forEach(btn => {
     btn.onclick = () => {
@@ -1477,14 +1434,12 @@ document.querySelectorAll('.close').forEach(btn => {
         document.body.style.overflow = '';
     };
 });
-
 // Form demo
 document.getElementById("loginForm").onsubmit = e => {
     e.preventDefault();
     alert("Login demo: " + document.getElementById("loginEmail").value);
     loginModal.style.display = "none";
 };
-
 document.getElementById("signupForm").onsubmit = e => {
     e.preventDefault();
     const pw = document.getElementById("signupPassword").value;
@@ -1493,7 +1448,6 @@ document.getElementById("signupForm").onsubmit = e => {
     alert("Registrazione demo completata!");
     signupModal.style.display = "none";
 };
-
 document.getElementById("reportForm").onsubmit = e => {
     e.preventDefault();
     const nome = document.getElementById("reportNome").value;
@@ -1508,7 +1462,6 @@ document.getElementById("reportForm").onsubmit = e => {
     alert("Segnalazione inviata (demo):\nNome: " + nome + " " + cognome + "\nEmail: " + email + "\nTipo: " + tipo);
     document.getElementById('reportModal').style.display = "none";
 };
-
 document.getElementById("preorderForm").onsubmit = e => {
     e.preventDefault();
     const nome = document.getElementById("preNome").value;
@@ -1532,31 +1485,27 @@ document.getElementById("preorderForm").onsubmit = e => {
     alert("Prenotazione confermata (demo):\nNome: " + nome + " " + cognome + "\nEmail: " + email + "\nMetodo: " + metodo + (note ? "\nNote: " + note : ""));
     preorderModal.style.display = "none";
 };
-
 // Single-page navigation
 document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelectorAll(".nav-link");
     const mobileNavLinks = document.querySelectorAll(".mobile-nav .nav-link");
     const sections = document.querySelectorAll(".section");
-
     function showSection(id) {
         sections.forEach(s => s.classList.remove("active"));
         const target = document.getElementById(id);
         if (target) target.classList.add("active");
-
         // Aggiorna navbar desktop
         navLinks.forEach(l => {
             l.classList.remove("active");
             if (l.dataset.section === id) l.classList.add("active");
         });
-        
+       
         // Aggiorna navbar mobile
         mobileNavLinks.forEach(l => {
             l.classList.remove("active");
             if (l.dataset.section === id) l.classList.add("active");
         });
     }
-
     // Per navbar desktop
     navLinks.forEach(link => {
         link.addEventListener("click", e => {
@@ -1564,7 +1513,7 @@ document.addEventListener("DOMContentLoaded", () => {
             showSection(link.dataset.section);
         });
     });
-    
+   
     // Per navbar mobile
     mobileNavLinks.forEach(link => {
         link.addEventListener("click", e => {
@@ -1572,21 +1521,37 @@ document.addEventListener("DOMContentLoaded", () => {
             showSection(link.dataset.section);
         });
     });
-
     // Funzione globale per mostrare sezioni
     window.showSection = showSection;
-
     // Avvio: Home
     showSection("home");
 });
-
 // FAQ accordion
 document.querySelectorAll(".faq-question").forEach(q => {
     q.addEventListener("click", () => {
         q.parentElement.classList.toggle("active");
     });
 });
-</script>
 
+// === AGGIUNTA PER IL TRAILER ===
+const trailerModal = document.getElementById("trailerModal");
+const trailerBtn   = document.getElementById("trailerBtn");
+const closeTrailer = document.getElementById("closeTrailer");
+
+if (trailerBtn) {
+    trailerBtn.addEventListener('click', () => {
+        trailerModal.style.display = "flex";
+        document.body.style.overflow = 'hidden';
+    });
+}
+
+if (closeTrailer) {
+    closeTrailer.addEventListener('click', () => {
+        trailerModal.style.display = "none";
+        document.body.style.overflow = '';
+    });
+}
+
+</script>
 </body>
 </html>
