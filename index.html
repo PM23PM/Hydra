@@ -67,7 +67,6 @@
         align-items: center;
         gap: 28px;
     }
-   
     nav ul {
         display: flex;
         list-style: none;
@@ -120,18 +119,16 @@
     .btn-signup:hover {
         background: #e65b50;
     }
-   
-    /* Menu Hamburgher per Mobile */
     .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    width: 30px;
-    height: 24px;
-    justify-content: space-between;
-    z-index: 1001;
-    position: relative; /* AGGIUNGI QUESTA RIGA */
-}
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        width: 30px;
+        height: 24px;
+        justify-content: space-between;
+        z-index: 1001;
+        position: relative;
+    }
     .hamburger span {
         width: 100%;
         height: 3px;
@@ -148,70 +145,60 @@
     .hamburger.active span:nth-child(3) {
         transform: translateY(-10px) rotate(-45deg);
     }
-   
-    /* Menu Mobile a tendina con effetto translucido */
     @keyframes menuFadeIn {
-    from {
-        opacity: 0;
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
-    to {
-        opacity: 1;
+    @keyframes menuFadeOut {
+        from { opacity: 1; }
+        to { opacity: 0; }
     }
-}
-@keyframes menuFadeOut {
-    from {
-        opacity: 1;
+    @keyframes contentSlideDown {
+        from {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateY(15px);
+        }
     }
-    to {
-        opacity: 0;
+    @keyframes menuOverlayFadeOut {
+        0% {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px);
+        }
+        100% {
+            background: rgba(0, 0, 0, 0);
+            backdrop-filter: blur(0px);
+        }
     }
-}
-@keyframes contentSlideDown {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-}
-@keyframes menuOverlayFadeOut {
-    0% {
+    .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
         background: rgba(0, 0, 0, 0.85);
         backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        z-index: 10000;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 80px 20px;
+        opacity: 0;
+        transform: translateY(-100%);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: opacity 0.3s ease-out;
     }
-    100% {
-        background: rgba(0, 0, 0, 0);
-        backdrop-filter: blur(0px);
+    .mobile-menu.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+        animation: menuFadeIn 0.3s ease-out;
     }
-}
-    .mobile-menu {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    z-index: 10000; /* ASSICURATI CHE SIA 10000 */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 80px 20px;
-    opacity: 0;
-    transform: translateY(-100%);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    transition: opacity 0.3s ease-out;
-}
-.mobile-menu.active {
-    display: flex;
-    opacity: 1;
-    transform: translateY(0);
-    animation: menuFadeIn 0.3s ease-out;
-}
     .mobile-menu-content {
         background: rgba(0, 0, 0, 0.7);
         backdrop-filter: blur(12px);
@@ -282,75 +269,74 @@
     .mobile-auth-buttons .btn-signup:hover {
         background: rgba(230, 91, 80, 0.9);
     }
-.close-mobile-menu {
-    position: fixed;
-    top: 8%; /* CENTRATO VERTICALMENTE */
-    left: 90%; /* CENTRATO ORIZZONTALMENTE */
-    transform: translate(-50%, -50%); /* PERFETTO CENTRAMENTO */
-    width: 60px;
-    height: 60px;
-    background: rgba(255, 111, 97, 0.95);
-    border: 3px solid rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10002; /* PIÙ ALTO DEL MENU E DELL'HAMBURGER */
-    box-shadow: 0 0 30px rgba(255, 111, 97, 0.7);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 0;
-    margin: 0;
-    opacity: 0;
-    visibility: hidden;
-}
-.mobile-menu.active .close-mobile-menu {
-    opacity: 1;
-    visibility: visible;
-}
-.close-mobile-menu::before {
-    content: "";
-    font-size: 36px;
-    color: white;
-    font-weight: 300;
-    line-height: 1;
-    display: block;
-    margin-top: -4px;
-}
-.mobile-menu {
-    overflow: visible !important;
-}
+    .close-mobile-menu {
+        position: fixed;
+        top: 8%;
+        left: 90%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 111, 97, 0.95);
+        border: 3px solid rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10002;
+        box-shadow: 0 0 30px rgba(255, 111, 97, 0.7);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 0;
+        margin: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .mobile-menu.active .close-mobile-menu {
+        opacity: 1;
+        visibility: visible;
+    }
+    .close-mobile-menu::before {
+        content: "";
+        font-size: 36px;
+        color: white;
+        font-weight: 300;
+        line-height: 1;
+        display: block;
+        margin-top: -4px;
+    }
+    .mobile-menu {
+        overflow: visible !important;
+    }
     .close-mobile-menu:hover {
         color: #ff6f61;
         background: rgba(255, 255, 255, 0.15);
         border-color: rgba(255, 111, 97, 0.5);
     }
-   
     .modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 2000;
-    background: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    align-items: center;
-    justify-content: center;
-}
-.modal-content {
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    padding: 30px;
-    border-radius: 16px;
-    width: 90%;
-    max-width: 480px;
-    box-shadow:
-        0 10px 40px rgba(0, 0, 0, 0.8),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
-    position: relative;
-}
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 2000;
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        align-items: center;
+        justify-content: center;
+    }
+    .modal-content {
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: 16px;
+        width: 90%;
+        max-width: 480px;
+        box-shadow:
+            0 10px 40px rgba(0, 0, 0, 0.8),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+        position: relative;
+    }
     .close {
         position: absolute;
         top: 10px;
@@ -398,190 +384,176 @@
         cursor: pointer;
     }
     .submit-btn:hover { background: #e65b50; }
-    /* Sezioni */
-.section {
-    min-height: 100vh;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 140px 20px 60px;
-    opacity: 0;
-    transition: opacity 0.8s ease;
-    text-align: center;
-}
-/* Blocco translucido per la home - STESSA SFOCATURA DELLA NAVBAR */
-#home .section-content {
-    background: rgba(0, 0, 0, 0.65); /* Più scuro per maggior contrasto */
-    backdrop-filter: blur(20px); /* Aumentata la sfocatura */
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 24px; /* Bordi più arrotondati */
-    border: 1px solid rgba(255,255,255,0.12); /* Bordo più visibile */
-    box-shadow:
-        0 15px 40px rgba(0,0,0,0.8), /* Ombra più marcata */
-        0 0 60px rgba(255, 111, 97, 0.15), /* Luce ambientale arancione */
-        inset 0 1px 0 rgba(255,255,255,0.08); /* Bordo interno luminoso */
-    padding: 70px 60px;
-    max-width: 1000px;
-    width: 90%;
-    position: relative;
-    overflow: hidden;
-}
-/* Effetto gradiente di bordo */
-#home .section-content::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg,
-        rgba(255, 111, 97, 0.2),
-        rgba(0, 0, 0, 0) 30%,
-        rgba(0, 0, 0, 0) 70%,
-        rgba(255, 111, 97, 0.2));
-    border-radius: 26px;
-    z-index: -1;
-    pointer-events: none;
-}
-/* Animazione di entrata più fluida */
-@keyframes homeContentAppear {
-    0% {
+    .section {
+        min-height: 100vh;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 140px 20px 60px;
         opacity: 0;
-        transform: translateY(30px) scale(0.98);
+        transition: opacity 0.8s ease;
+        text-align: center;
     }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-#home.active .section-content {
-    animation: homeContentAppear 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
-/* Titolo con gradiente */
-#home .section-title {
-    font-size: 3.5rem;
-    font-weight: 900;
-    margin-bottom: 50px;
-    background: linear-gradient(135deg, #ffffff 0%, #ffb199 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 0 5px 25px rgba(255, 111, 97, 0.3);
-    letter-spacing: 1px;
-    position: relative;
-    padding-bottom: 20px;
-}
-#home .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, #ff6f61, transparent);
-    border-radius: 2px;
-}
-/* Testo con miglior leggibilità */
-#home .section-text {
-    font-size: 1.3rem;
-    line-height: 1.8;
-    max-width: 70ch;
-    margin: 0 auto;
-    color: #f0f0f0;
-    text-shadow: 0 2px 15px rgba(0,0,0,0.5);
-    padding: 30px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 16px;
-    border-left: 4px solid #ff6f61;
-    position: relative;
-}
-/* Effetto particelle di luce */
-#home .section-text::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg,
-        transparent,
-        rgba(255, 111, 97, 0.5),
-        transparent);
-}
-/* Responsive */
-@media (max-width: 900px) {
     #home .section-content {
-        padding: 50px 40px;
-        margin: 20px;
-        width: calc(100% - 40px);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-    }
-   
-    #home .section-title {
-        font-size: 2.8rem;
-    }
-   
-    #home .section-text {
-        font-size: 1.15rem;
-        padding: 25px;
-    }
-}
-@media (max-width: 600px) {
-    #home .section-content {
-        padding: 40px 25px;
-        margin: 15px;
-        width: calc(100% - 30px);
-        border-radius: 20px;
-    }
-   
-    #home .section-title {
-        font-size: 2.2rem;
-        margin-bottom: 35px;
-    }
-   
-    #home .section-text {
-        font-size: 1rem;
-        padding: 20px;
-        line-height: 1.7;
-    }
-}
-/* Effetto hover per il blocco */
-@media (hover: hover) {
-    #home .section-content:hover {
-        transform: translateY(-5px);
-        box-shadow:
-            0 20px 50px rgba(0,0,0,0.9),
-            0 0 80px rgba(255, 111, 97, 0.2);
-        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-}
-/* Animazione del background */
-@keyframes subtleGlow {
-    0%, 100% {
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 24px;
+        border: 1px solid rgba(255,255,255,0.12);
         box-shadow:
             0 15px 40px rgba(0,0,0,0.8),
-            0 0 60px rgba(255, 111, 97, 0.15);
+            0 0 60px rgba(255, 111, 97, 0.15),
+            inset 0 1px 0 rgba(255,255,255,0.08);
+        padding: 70px 60px;
+        max-width: 1000px;
+        width: 90%;
+        position: relative;
+        overflow: hidden;
     }
-    50% {
-        box-shadow:
-            0 15px 40px rgba(0,0,0,0.8),
-            0 0 80px rgba(255, 111, 97, 0.2);
+    #home .section-content::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg,
+            rgba(255, 111, 97, 0.2),
+            rgba(0, 0, 0, 0) 30%,
+            rgba(0, 0, 0, 0) 70%,
+            rgba(255, 111, 97, 0.2));
+        border-radius: 26px;
+        z-index: -1;
+        pointer-events: none;
     }
-}
-#home .section-content {
-    animation: subtleGlow 4s ease-in-out infinite;
-}
+    @keyframes homeContentAppear {
+        0% {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+    #home.active .section-content {
+        animation: homeContentAppear 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    }
+    #home .section-title {
+        font-size: 3.5rem;
+        font-weight: 900;
+        margin-bottom: 50px;
+        background: linear-gradient(135deg, #ffffff 0%, #ffb199 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: 0 5px 25px rgba(255, 111, 97, 0.3);
+        letter-spacing: 1px;
+        position: relative;
+        padding-bottom: 20px;
+    }
+    #home .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, transparent, #ff6f61, transparent);
+        border-radius: 2px;
+    }
+    #home .section-text {
+        font-size: 1.3rem;
+        line-height: 1.8;
+        max-width: 70ch;
+        margin: 0 auto;
+        color: #f0f0f0;
+        text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+        padding: 30px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 16px;
+        border-left: 4px solid #ff6f61;
+        position: relative;
+    }
+    #home .section-text::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 111, 97, 0.5),
+            transparent);
+    }
+    @media (max-width: 900px) {
+        #home .section-content {
+            padding: 50px 40px;
+            margin: 20px;
+            width: calc(100% - 40px);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        #home .section-title {
+            font-size: 2.8rem;
+        }
+        #home .section-text {
+            font-size: 1.15rem;
+            padding: 25px;
+        }
+    }
+    @media (max-width: 600px) {
+        #home .section-content {
+            padding: 40px 25px;
+            margin: 15px;
+            width: calc(100% - 30px);
+            border-radius: 20px;
+        }
+        #home .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 35px;
+        }
+        #home .section-text {
+            font-size: 1rem;
+            padding: 20px;
+            line-height: 1.7;
+        }
+    }
+    @media (hover: hover) {
+        #home .section-content:hover {
+            transform: translateY(-5px);
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.9),
+                0 0 80px rgba(255, 111, 97, 0.2);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+    }
+    @keyframes subtleGlow {
+        0%, 100% {
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.8),
+                0 0 60px rgba(255, 111, 97, 0.15);
+        }
+        50% {
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.8),
+                0 0 80px rgba(255, 111, 97, 0.2);
+        }
+    }
+    #home .section-content {
+        animation: subtleGlow 4s ease-in-out infinite;
+    }
     @keyframes sectionFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
     .section.active {
         display: flex;
@@ -604,10 +576,10 @@
         transform: translateY(-20px);
     }
     @keyframes titleSlideIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
     .section-text {
         font-size: 24px;
@@ -620,9 +592,8 @@
         opacity: 0;
     }
     @keyframes textFadeIn {
-    to { opacity: 1; }
-}
-    /* Giochi */
+        to { opacity: 1; }
+    }
     .game-catalog {
         display: flex;
         gap: 50px;
@@ -680,7 +651,6 @@
         transform: translateY(-3px);
         box-shadow: 0 8px 25px rgba(255,111,97,0.7);
     }
-    /* Supporto */
     .support-info {
         display: flex;
         flex-direction: column;
@@ -749,7 +719,6 @@
         background: #e65b50;
         transform: translateY(-2px);
     }
-    /* FAQ */
     .faq-item {
         margin-bottom: 25px;
         border-bottom: 1px solid #333;
@@ -818,8 +787,6 @@
         transform: scale(1.15);
         filter: drop-shadow(0 0 8px #ff6f61);
     }
-   
-    /* Media Queries per Mobile */
     @media (max-width: 900px) {
         header {
             padding: 12px 20px;
@@ -836,17 +803,12 @@
         .logo img {
             height: 24px;
         }
-       
-        /* Nascondi la navbar desktop e mostra hamburger */
         .right-header {
             display: none;
         }
-       
         .hamburger {
             display: flex;
         }
-       
-        /* Sezioni */
         .section {
             padding-top: 100px;
         }
@@ -856,8 +818,6 @@
         .section-text {
             font-size: 20px;
         }
-       
-        /* Giochi */
         .game-catalog {
             flex-direction: column;
             gap: 30px;
@@ -869,22 +829,16 @@
         .game-description {
             min-width: unset;
         }
-       
-        /* Supporto */
         .support-grid {
             grid-template-columns: 1fr;
             gap: 20px;
         }
-       
-        /* FAQ */
         .faq-question {
             font-size: 20px;
         }
         .faq-answer {
             font-size: 18px;
         }
-       
-        /* Menu mobile su tablet piccoli */
         @media (max-width: 600px) {
             .mobile-menu-content {
                 padding: 30px 20px;
@@ -896,22 +850,17 @@
             }
         }
     }
-   
-    /* Desktop specifico: HYDRA a destra */
     @media (min-width: 901px) {
         .mobile-menu {
             display: none !important;
         }
-       
         .header-content {
             display: flex;
             align-items: center;
         }
-       
         .logo-and-brand {
             margin-right: auto;
         }
-       
         .company-name {
             font-size: 22px;
         }
@@ -925,8 +874,6 @@
             <div class="logo"><a href="#"><img src="https://i.imgur.com/3eG6kO3.png" alt="Logo Hydra"></a></div>
             <div class="company-name">HYDRA</div>
         </div>
-       
-        <!-- Navbar Desktop (visibile solo su PC) -->
         <div class="right-header">
             <nav>
                 <ul>
@@ -941,8 +888,6 @@
                 <a href="#" id="signupBtn" class="auth-btn btn-signup">Sign Up</a>
             </div>
         </div>
-       
-        <!-- Menu Hamburgher per Mobile -->
         <div class="hamburger" id="hamburger">
             <span></span>
             <span></span>
@@ -950,7 +895,6 @@
         </div>
     </div>
 </header>
-<!-- Menu Mobile a tendina -->
 <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-content">
         <nav class="mobile-nav">
@@ -959,7 +903,6 @@
             <a href="#supporto" data-section="supporto" class="nav-link">Supporto</a>
             <a href="#faq" data-section="faq" class="nav-link">FAQ</a>
         </nav>
-       
         <div class="mobile-auth-buttons">
             <a href="#" id="loginBtnMobile" class="auth-btn btn-login">Login</a>
             <a href="#" id="signupBtnMobile" class="auth-btn btn-signup">Sign Up</a>
@@ -967,7 +910,6 @@
     </div>
     <button class="close-mobile-menu" id="closeMobileMenu">×</button>
 </div>
-<!-- Modal Login -->
 <div id="loginModal" class="modal">
     <div class="modal-content">
         <span class="close" id="closeLogin">×</span>
@@ -985,7 +927,6 @@
         </form>
     </div>
 </div>
-<!-- Modal Sign Up -->
 <div id="signupModal" class="modal">
     <div class="modal-content">
         <span class="close" id="closeSignup">×</span>
@@ -1019,7 +960,6 @@
         </form>
     </div>
 </div>
-<!-- Modal Segnalazione -->
 <div id="reportModal" class="modal">
     <div class="modal-content">
         <span class="close" id="closeReport">×</span>
@@ -1056,7 +996,6 @@
         </form>
     </div>
 </div>
-<!-- Modal Prenotazione -->
 <div id="preorderModal" class="modal">
     <div class="modal-content">
         <span class="close" id="closePreorder">×</span>
@@ -1107,7 +1046,6 @@
         </form>
     </div>
 </div>
-<!-- MODAL RECUPERO PASSWORD -->
 <div id="recoverPasswordModal" class="modal">
     <div class="modal-content">
         <span class="close">×</span>
@@ -1121,7 +1059,6 @@
         </form>
     </div>
 </div>
-<!-- MODAL RECUPERO EMAIL -->
 <div id="recoverEmailModal" class="modal">
     <div class="modal-content">
         <span class="close">×</span>
@@ -1143,7 +1080,6 @@
         </form>
     </div>
 </div>
-<!-- MODAL CONTROLLO PARENTALE -->
 <div id="parentalModal" class="modal">
     <div class="modal-content">
         <span class="close">×</span>
@@ -1161,7 +1097,6 @@
         </form>
     </div>
 </div>
-<!-- MODAL 2FA -->
 <div id="2faModal" class="modal">
     <div class="modal-content">
         <span class="close">×</span>
@@ -1178,8 +1113,6 @@
         </form>
     </div>
 </div>
-
-<!-- === NUOVO MODAL TRAILER === -->
 <div id="trailerModal" class="modal">
     <div class="modal-content" style="max-width:960px; width:92%; padding:0; overflow:hidden; background:transparent; border:none; box-shadow:none;">
         <span class="close" id="closeTrailer" style="position:absolute; top:15px; right:20px; z-index:10; font-size:42px; color:#fff; text-shadow:0 0 8px #000;">×</span>
@@ -1194,8 +1127,6 @@
         </div>
     </div>
 </div>
-
-<!-- Sezioni -->
 <section id="home" class="section active">
     <div class="section-content">
         <h2 class="section-title">Chi Siamo</h2>
@@ -1299,7 +1230,6 @@
         </div>
     </div>
 </section>
-<!-- Termini e Condizioni -->
 <section id="termini" class="section">
     <div class="section-content">
         <h2 class="section-title">Termini e Condizioni</h2>
@@ -1317,25 +1247,79 @@
         <p>Ultimo aggiornamento: 05 febbraio 2026</p>
     </div>
 </section>
+<section id="privacy" class="section">
+    <div class="section-content">
+        <h2 class="section-title">Privacy Policy</h2>
+        <p>Ultimo aggiornamento: 06 febbraio 2026</p>
+        <h3>1. Titolare del trattamento</h3>
+        <p>Hydra Gaming S.r.l.<br>Sede legale: [Inserire indirizzo completo]<br>Partita IVA: 23503618214<br>Email: privacy@hydra.com</p>
+        <h3>2. Dati personali raccolti</h3>
+        <p>Raccogliamo:</p>
+        <ul style="text-align:left; max-width:800px; margin:20px auto; list-style:disc inside;">
+            <li>Dati di registrazione (nome, cognome, email, data di nascita)</li>
+            <li>Dati di pagamento (gestiti da terze parti – non memorizziamo numeri di carta)</li>
+            <li>Dati di utilizzo (IP, dispositivo, pagine visitate, tempo di sessione)</li>
+            <li>Dati inviati tramite form di supporto/segnalazione</li>
+        </ul>
+        <h3>3. Finalità del trattamento</h3>
+        <p>I dati vengono trattati per:</p>
+        <ul style="text-align:left; max-width:800px; margin:20px auto; list-style:disc inside;">
+            <li>Creazione e gestione account</li>
+            <li>Erogazione dei servizi (giochi, prenotazioni, supporto)</li>
+            <li>Comunicazioni commerciali (solo con consenso)</li>
+            <li>Adempimenti legali e fiscali</li>
+            <li>Analisi e miglioramento del servizio</li>
+        </ul>
+        <h3>4. Base giuridica</h3>
+        <p>Contratto (art. 6.1.b GDPR), consenso (art. 6.1.a), obblighi di legge (art. 6.1.c).</p>
+        <h3>5. Conservazione dei dati</h3>
+        <p>I dati vengono conservati per il tempo necessario alle finalità indicate e comunque non oltre 10 anni dalla cessazione del rapporto (salvo obblighi di legge più lunghi).</p>
+        <h3>6. Diritti dell'interessato</h3>
+        <p>Hai diritto di accesso, rettifica, cancellazione, limitazione, portabilità, opposizione (artt. 15-22 GDPR). Per esercitare i diritti: privacy@hydra.com</p>
+        <h3>7. Trasferimento dati extra-UE</h3>
+        <p>Utilizziamo servizi cloud con garanzie adeguate (Clausole Contrattuali Standard o Privacy Shield ove applicabile).</p>
+        <p>Per maggiori informazioni contattaci a privacy@hydra.com</p>
+    </div>
+</section>
+<section id="cookie" class="section">
+    <div class="section-content">
+        <h2 class="section-title">Cookie Policy</h2>
+        <p>Ultimo aggiornamento: 06 febbraio 2026</p>
+        <h3>Cosa sono i cookie?</h3>
+        <p>I cookie sono piccoli file di testo che i siti visitati inviano al browser e che vengono memorizzati per essere poi ritrasmessi agli stessi siti alla visita successiva.</p>
+        <h3>Tipologie di cookie utilizzati</h3>
+        <ul style="text-align:left; max-width:800px; margin:20px auto; list-style:disc inside;">
+            <li><strong>Cookie tecnici necessari</strong>: essenziali per il funzionamento del sito (navigazione, autenticazione)</li>
+            <li><strong>Cookie di preferenza</strong>: ricordano lingua, tema oscuro, ecc.</li>
+            <li><strong>Cookie statistici</strong>: analizzano l’uso del sito in forma anonima (es. Google Analytics con IP anonimizzato)</li>
+            <li><strong>Cookie di marketing</strong>: profilazione pubblicitaria (solo con consenso)</li>
+        </ul>
+        <h3>Gestione dei cookie</h3>
+        <p>Puoi gestire i cookie tramite il banner al primo accesso o dalle impostazioni del browser:</p>
+        <ul style="text-align:left; max-width:800px; margin:20px auto; list-style:disc inside;">
+            <li>Chrome: Impostazioni → Privacy e sicurezza → Cookie</li>
+            <li>Firefox: Opzioni → Privacy e sicurezza → Cookie</li>
+            <li>Safari: Preferenze → Privacy</li>
+            <li>Edge: Impostazioni → Cookie e autorizzazioni sito</li>
+        </ul>
+        <h3>Durata dei cookie</h3>
+        <p>Cookie di sessione (eliminati alla chiusura del browser) e persistenti (fino a 24 mesi massimo).</p>
+        <p>Per maggiori dettagli o per revocare il consenso in qualsiasi momento: privacy@hydra.com</p>
+    </div>
+</section>
 <footer>
     <div class="footer-content">
         <p>© 2026 Hydra – Partita IVA: 23503618214</p>
         <p>
-            <a href="#termini" onclick="showSection('termini'); return false;">Termini e Condizioni</a>
+            <a href="#termini" onclick="showSection('termini'); return false;">Termini e Condizioni</a> •
+            <a href="#privacy" onclick="showSection('privacy'); return false;">Privacy Policy</a> •
+            <a href="#cookie" onclick="showSection('cookie'); return false;">Cookie Policy</a>
         </p>
         <div class="social-links">
-            <a href="https://discord.com" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord">
-            </a>
-            <a href="https://x.com" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X">
-            </a>
-            <a href="https://www.instagram.com" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram">
-            </a>
-            <a href="https://www.youtube.com" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
-            </a>
+            <a href="https://discord.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord"></a>
+            <a href="https://x.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X"></a>
+            <a href="https://www.instagram.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+            <a href="https://www.youtube.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
         </div>
     </div>
 </footer>
@@ -1345,19 +1329,16 @@ const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 const closeMobileMenu = document.getElementById('closeMobileMenu');
 const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
-// Apertura menu mobile
 hamburger.addEventListener('click', () => {
     mobileMenu.classList.add('active');
     hamburger.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Blocca scroll
+    document.body.style.overflow = 'hidden';
 });
-// Chiusura menu mobile
 closeMobileMenu.addEventListener('click', () => {
     mobileMenu.classList.remove('active');
     hamburger.classList.remove('active');
     document.body.style.overflow = '';
 });
-// Chiusura menu quando si clicca su un link
 mobileNavLinks.forEach(link => {
     link.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
@@ -1365,7 +1346,6 @@ mobileNavLinks.forEach(link => {
         document.body.style.overflow = '';
     });
 });
-// Chiusura menu quando si clicca all'esterno
 mobileMenu.addEventListener('click', (e) => {
     if (e.target === mobileMenu) {
         mobileMenu.classList.remove('active');
@@ -1380,15 +1360,12 @@ const loginBtnMobile = document.getElementById("loginBtnMobile");
 const closeLogin = document.getElementById("closeLogin");
 function openLoginModal() {
     loginModal.style.display = "flex";
-    // Chiudi menu mobile se aperto
     mobileMenu.classList.remove('active');
     hamburger.classList.remove('active');
     document.body.style.overflow = '';
 }
 loginBtn.onclick = e => { e.preventDefault(); openLoginModal(); };
-if (loginBtnMobile) {
-    loginBtnMobile.onclick = e => { e.preventDefault(); openLoginModal(); };
-}
+if (loginBtnMobile) loginBtnMobile.onclick = e => { e.preventDefault(); openLoginModal(); };
 // Modal Sign Up
 const signupModal = document.getElementById("signupModal");
 const signupBtn = document.getElementById("signupBtn");
@@ -1396,45 +1373,39 @@ const signupBtnMobile = document.getElementById("signupBtnMobile");
 const closeSignup = document.getElementById("closeSignup");
 function openSignupModal() {
     signupModal.style.display = "flex";
-    // Chiudi menu mobile se aperto
     mobileMenu.classList.remove('active');
     hamburger.classList.remove('active');
     document.body.style.overflow = '';
 }
 signupBtn.onclick = e => { e.preventDefault(); openSignupModal(); };
-if (signupBtnMobile) {
-    signupBtnMobile.onclick = e => { e.preventDefault(); openSignupModal(); };
-}
+if (signupBtnMobile) signupBtnMobile.onclick = e => { e.preventDefault(); openSignupModal(); };
 // Modal Prenotazione
 const preorderModal = document.getElementById("preorderModal");
 const preorderBtn = document.getElementById("preorderBtn");
 const closePreorder = document.getElementById("closePreorder");
 preorderBtn.onclick = () => {
     preorderModal.style.display = "flex";
-    // Chiudi menu mobile se aperto
     mobileMenu.classList.remove('active');
     hamburger.classList.remove('active');
     document.body.style.overflow = '';
 };
-// Mostra campi carta
 document.getElementById("preMetodo").addEventListener("change", function() {
     document.getElementById("cartaFields").style.display = this.value === "carta" ? "block" : "none";
 });
-// Chiudi modal fuori e con X
+// Chiusura modal generica
 window.onclick = e => {
     if (e.target.classList.contains('modal')) {
         e.target.style.display = "none";
         document.body.style.overflow = '';
     }
 };
-// Gestione chiusura per tutti i bottoni .close
 document.querySelectorAll('.close').forEach(btn => {
     btn.onclick = () => {
         btn.closest('.modal').style.display = 'none';
         document.body.style.overflow = '';
     };
 });
-// Form demo
+// Form demo (solo alert)
 document.getElementById("loginForm").onsubmit = e => {
     e.preventDefault();
     alert("Login demo: " + document.getElementById("loginEmail").value);
@@ -1460,7 +1431,7 @@ document.getElementById("reportForm").onsubmit = e => {
         return;
     }
     alert("Segnalazione inviata (demo):\nNome: " + nome + " " + cognome + "\nEmail: " + email + "\nTipo: " + tipo);
-    document.getElementById('reportModal').style.display = "none";
+    reportModal.style.display = "none";
 };
 document.getElementById("preorderForm").onsubmit = e => {
     e.preventDefault();
@@ -1485,7 +1456,7 @@ document.getElementById("preorderForm").onsubmit = e => {
     alert("Prenotazione confermata (demo):\nNome: " + nome + " " + cognome + "\nEmail: " + email + "\nMetodo: " + metodo + (note ? "\nNote: " + note : ""));
     preorderModal.style.display = "none";
 };
-// Single-page navigation
+// Navigazione single-page
 document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelectorAll(".nav-link");
     const mobileNavLinks = document.querySelectorAll(".mobile-nav .nav-link");
@@ -1494,36 +1465,28 @@ document.addEventListener("DOMContentLoaded", () => {
         sections.forEach(s => s.classList.remove("active"));
         const target = document.getElementById(id);
         if (target) target.classList.add("active");
-        // Aggiorna navbar desktop
         navLinks.forEach(l => {
             l.classList.remove("active");
             if (l.dataset.section === id) l.classList.add("active");
         });
-       
-        // Aggiorna navbar mobile
         mobileNavLinks.forEach(l => {
             l.classList.remove("active");
             if (l.dataset.section === id) l.classList.add("active");
         });
     }
-    // Per navbar desktop
     navLinks.forEach(link => {
         link.addEventListener("click", e => {
             e.preventDefault();
             showSection(link.dataset.section);
         });
     });
-   
-    // Per navbar mobile
     mobileNavLinks.forEach(link => {
         link.addEventListener("click", e => {
             e.preventDefault();
             showSection(link.dataset.section);
         });
     });
-    // Funzione globale per mostrare sezioni
     window.showSection = showSection;
-    // Avvio: Home
     showSection("home");
 });
 // FAQ accordion
@@ -1532,26 +1495,22 @@ document.querySelectorAll(".faq-question").forEach(q => {
         q.parentElement.classList.toggle("active");
     });
 });
-
-// === AGGIUNTA PER IL TRAILER ===
+// Trailer modal
 const trailerModal = document.getElementById("trailerModal");
-const trailerBtn   = document.getElementById("trailerBtn");
+const trailerBtn = document.getElementById("trailerBtn");
 const closeTrailer = document.getElementById("closeTrailer");
-
 if (trailerBtn) {
     trailerBtn.addEventListener('click', () => {
         trailerModal.style.display = "flex";
         document.body.style.overflow = 'hidden';
     });
 }
-
 if (closeTrailer) {
     closeTrailer.addEventListener('click', () => {
         trailerModal.style.display = "none";
         document.body.style.overflow = '';
     });
 }
-
 </script>
 </body>
 </html>
